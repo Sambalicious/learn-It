@@ -1,11 +1,13 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 
-import alpha from '../../utils/img/alpha.png';
-import beta from '../../utils/img/beta.png';
-import palms from '../../utils/img/palms.svg';
-import palms2 from '../../utils/img/palms2.png';
-import palms3 from '../../utils/img/palms3.svg';
+import bg1 from '../../utils/img/bg1.jpg';
+import bg2 from '../../utils/img/bg2.jpg';
+import bg3 from '../../utils/img/bg3.jpg';
+import bg4 from '../../utils/img/bg4.jpg';
+import bg5 from '../../utils/img/bg5.jpg';
+import bg6 from '../../utils/img/bg6.jpg';
+import bg7 from '../../utils/img/bg7.jpg';
 import palms4 from '../../utils/img/palms4.jpg';
 
 
@@ -13,29 +15,39 @@ import palms4 from '../../utils/img/palms4.jpg';
 const CarouselPage = () => {
     return ( 
         <div>
-            <Carousel showArrows={true} autoPlay={true} infiniteLoop={true} showThumbs={false}>
+            <Carousel showArrows={true} autoPlay={true} infiniteLoop={true} showThumbs={false} dynamicHeight={true}>
                 <div>
-                    <img src={palms} alt="slide_photos" />
+                    <img src={bg1} alt="slide_photos" />
                     <button className="bg-red-400 text-white">Get started</button>
                 
                 </div>
                 <div>
-                    <img src={beta} alt="slide_photos" />
+                    <img src={bg2} alt="slide_photos" />
                     <button className="bg-red-400 text-white">Get started</button>
                 
                 </div>
                 <div>
-                    <img src={alpha} alt="slide_photos" />
+                    <img src={bg3} alt="slide_photos" />
                     <button className="bg-red-400 text-white">Get started</button>
                     
                 </div>
                 <div>
-                    <img src={palms2} />
+                    <img src={bg4} />
                     <button className="bg-red-400 text-white">Get started</button>
                 
                 </div>
                 <div>
-                    <img src={palms3} alt="slide_photos" />
+                    <img src={bg5} alt="slide_photos" />
+                    <button className="bg-red-400 text-white">Get started</button>
+                    
+                </div>
+                <div>
+                    <img src={bg6} alt="slide_photos" />
+                    <button className="bg-red-400 text-white">Get started</button>
+                    
+                </div>
+                <div>
+                    <img src={bg7} alt="slide_photos" />
                     <button className="bg-red-400 text-white">Get started</button>
                     
                 </div>
