@@ -19,13 +19,16 @@ const Navbar = () => {
   <div className="w-full block flex-grow  lg:flex lg:items-center lg:w-auto">
     <div className="text-sm lg:flex-grow">
       <Link to="/special-offer" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-        Special Courses
+        Become an instructor
+      </Link>
+      <Link to="/special-offer" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+        Learn with us
       </Link>
       <Link to="/dashboard" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
         Dashboard
       </Link>
       <Link to="/help" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
-          help
+          Courses
       </Link>
     </div>
     <div>

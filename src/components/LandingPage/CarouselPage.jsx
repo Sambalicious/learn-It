@@ -15,49 +15,73 @@ import palms4 from '../../utils/img/palms4.jpg';
 const CarouselPage = () => {
     return ( 
         <div>
-            <Carousel showArrows={true} autoPlay={true} infiniteLoop={true} showThumbs={false} dynamicHeight={true}>
+            <Carousel showArrows={true} autoPlay={true} showStatus={false} infiniteLoop={true} showThumbs={false} dynamicHeight={true}>
                 <div>
                     <img src={bg1} alt="slide_photos" />
-                    <button className="bg-red-400 text-white">Get started</button>
+                    <div className="md:-mt-64 sm:-mt-16 text-center text-white bg-indigo-600">
+                        <button class="bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Get started</button>
+                        
+                    </div>
+                   
                 
                 </div>
                 <div>
                     <img src={bg2} alt="slide_photos" />
-                    <button className="bg-red-400 text-white">Get started</button>
+                    <div className="md-mt-64 text-center text-white bg-indigo-600">
+                    <div className="md-mt-64 text-center text-white bg-indigo-600">
+                        <button class="bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Get started</button>
+                        
+                    </div>
+                        
+                    </div>
                 
                 </div>
                 <div>
                     <img src={bg3} alt="slide_photos" />
-                    <button className="bg-red-400 text-white">Get started</button>
+                    <div className="md:-mt-64 text-center text-white bg-indigo-600">
+                        <button class="bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Get started</button>
+                        
+                    </div>
                     
                 </div>
                 <div>
                     <img src={bg4} />
-                    <button className="bg-red-400 text-white">Get started</button>
+                    <div className="md:-mt-64 text-center text-white bg-indigo-600">
+                        <button class="bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Get started</button>
+                        
+                    </div>
                 
                 </div>
                 <div>
                     <img src={bg5} alt="slide_photos" />
-                    <button className="bg-red-400 text-white">Get started</button>
+                    <div className="md:-mt-64 text-center text-white bg-indigo-600">
+                        <button class="bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Get started</button>
+                        
+                    </div>
                     
                 </div>
                 <div>
                     <img src={bg6} alt="slide_photos" />
-                    <button className="bg-red-400 text-white">Get started</button>
+                    <div className="md:-mt-64 text-center text-white bg-indigo-600">
+                        <button class="bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Get started</button>
+                        
+                    </div>
                     
                 </div>
                 <div>
                     <img src={bg7} alt="slide_photos" />
-                    <button className="bg-red-400 text-white">Get started</button>
+                    <div className="md:-mt-64 text-center text-white bg-indigo-600">
+                        <button class="bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Get started</button>
+                        
+                    </div>
                     
                 </div>
                 <div>
                     <img src={palms4} alt="slide_photos" />
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-  Button
-</button>
-
-                    <p className="legend">Legend 6</p>
+                    <div className="md:-mt-64 sm:-mt-16 text-center text-white bg-indigo-600">
+                        <button class="bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Get started</button>
+                        
+                    </div>
                 </div>
             </Carousel>
         </div>
