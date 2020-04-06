@@ -1,6 +1,13 @@
 import React from 'react';
 import GoogleLogin from 'react-google-login';
+import DashBoard from '../DashBoardComponent/DashBoard';
+import { Link} from 'react-router-dom';
 
+
+const dash = () => {
+return  <Link to="/dashboard">dash</Link>
+}
+ 
 const Login = (response) => {
   console.log(response)
     return ( 
@@ -14,7 +21,7 @@ const Login = (response) => {
     )}
     
     buttonText="Login"
-    onSuccess={Login}
+    onSuccess={dash}
     onFailure={Login}
     isSignedIn={true}
     cookiePolicy={'single_host_origin'}
