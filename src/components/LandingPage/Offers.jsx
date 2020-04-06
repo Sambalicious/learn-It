@@ -4,7 +4,7 @@ import OfferComponent from './OfferComponent'
 
 const Offers = () => {
     return ( 
-        <Fragment className="bg-purple-300">
+        <div className="container bg-purple-100">
         <div className="text-black text-center text-lg font-bold py-6 ">offers</div>
     
     <div className="md:grid grid-cols-3 grid-rows-2 gap-4 ">
@@ -22,7 +22,7 @@ const Offers = () => {
     </div>
         
 
-        </Fragment>
+        </div>
      );
 }
  
