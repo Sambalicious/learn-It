@@ -16,7 +16,8 @@ const Login = (response) => {
     clientId="642784607442-q1fl97dg1ulb5dvf125thfi01r5usbd4.apps.googleusercontent.com"
     render={renderProps  =>  (
       
-      <button onClick={renderProps.onClick} disabled={renderProps.disabled}>
+      <button className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
+       onClick={renderProps.onClick} disabled={renderProps.disabled}>
         Login with Google</button>
     )}
     

@@ -4,7 +4,7 @@ import React, { Fragment } from 'react'
 const OfferComponent = ({pics}) => {
     return ( 
         <Fragment>
-            <div className="container md:shadow-xl sm:shadow-md mx-2 md:flex justify-between">
+            <div className="sm:container md:shadow-xl sm:shadow-md mx-2 md:flex justify-center">
 
 <div class="max-w-sm rounded overflow-hidden shadow-lg">
     <img class="w-full" src={pics} alt="Sunset in the mountains"/>

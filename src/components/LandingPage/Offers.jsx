@@ -4,7 +4,7 @@ import OfferComponent from './OfferComponent'
 
 const Offers = () => {
     return ( 
-        <div className="container bg-purple-100">
+        <div className=" text-center mb-4 bg-purple-100">
         <div className="text-black text-center text-lg font-bold py-6 ">offers</div>
     
     <div className="md:grid grid-cols-3 grid-rows-2 gap-4 ">
