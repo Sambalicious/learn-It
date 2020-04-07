@@ -12,8 +12,8 @@ const FooterPage = () => {
                 <h3 className="text-center text-teal-200 mb-4 ">Download the App</h3>
                
                 <div className="flex justify-center">
-                     <img className ="w-3/12 md:w-2/12 mr-2" src={playstore} alt="Playstore logo" />
-                     <img className ="w-3/12 md:w-2/12 min-w-0"  src={appstore} alt="Apple logo" />
+                     <img className ="w-3/12 h-auto md:w-2/12 mr-2" src={playstore} alt="Playstore logo" />
+                     <img className ="w-3/12 h-auto md:w-2/12 min-w-0"  src={appstore} alt="Apple logo" />
                 </div>
               
             </div>

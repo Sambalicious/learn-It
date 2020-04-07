@@ -1,5 +1,4 @@
 import React, {useContext} from 'react';
-import { Avatar, AvatarBadge, Stack } from "@chakra-ui/core";
 import { GlobalContext } from '../../App';
 
 
