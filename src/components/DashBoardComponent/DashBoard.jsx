@@ -1,10 +1,13 @@
-import React from 'react'
+import React from 'react';
+import AvatarComp from './AvatarComp'
+
+
 
 
 const DashBoard = () => {
     return ( 
         <div>
-            hello from the dash
+            <AvatarComp />
         </div>
      );
 }
