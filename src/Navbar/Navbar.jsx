@@ -1,17 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Login from '../components/LoginPage/LoginPage';
-import { Component } from 'react';
 
 
 
-class Navbar extends Component{
-  constructor(props){
-    super(props);
-  }
-  render(){
-
- 
+const Navbar = () => {
     return ( 
        <div>
            <nav className="flex items-center justify-between flex-wrap bg-indigo-900 p-6 mt-0">
@@ -41,7 +34,7 @@ class Navbar extends Component{
     </div>
     <div>
       
-      <p>{this.props.LoggedInStatus} </p>
+
      <Login />
     
     </div>
@@ -50,8 +43,6 @@ class Navbar extends Component{
        </div>
     )
 }
-}
-
  
 export default Navbar;
 

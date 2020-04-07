@@ -1,20 +1,18 @@
 import React, { useReducer } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import LandingPage from './components/LandingPage/LandingPage';
-import Navbar from './Navbar/Navbar';
-import FooterPage from './components/Footer/FooterPage';
 import DashBoard from './components/DashBoardComponent/DashBoard';
 
 export const GlobalContext = React.createContext();
 
 function App() {
   const InitialState = {
-    status: ''
+    authDetails: ''
   }
   const reducer = (state, action)=>{
     switch (action.type) {
       case 'LOG_IN': return{
-        ...state, status: state.status + action.payload
+        ...state, authDetails: action.payload
       }
         case 'LOG_OUT': return state
        
