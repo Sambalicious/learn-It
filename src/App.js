@@ -3,6 +3,8 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import LandingPage from './components/LandingPage/LandingPage';
 import DashBoard from './components/DashBoardComponent/DashBoard';
 import StudentDashBoard from './components/DashBoardComponent/StudentsDashBoard';
+import Navbar from './Navbar/Navbar';
+import FooterPage from './components/Footer/FooterPage';
 
 export const GlobalContext = React.createContext();
 
@@ -43,12 +45,13 @@ const [state, dispatch] = useReducer(reducer, InitialState)
     <div >
     <GlobalContext.Provider value={{state,dispatch, handleLogin, handleLogOut}}>
      <Router>
-         
+         <Navbar />
        <Switch>   
          <Route path='/' exact component={LandingPage} />
          <Route path='/dashboard'  exact component={DashBoard} />
          <Route path='/student' exact component={StudentDashBoard} />
        </Switch>
+       <FooterPage />
      </Router>
      </GlobalContext.Provider>
     </div>

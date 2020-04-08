@@ -3,10 +3,10 @@ import AvatarComp from './AvatarComp';
 import Offers from '../LandingPage/Offers'
 
 
-const StudentComponent = () => {
+const StudentComponent = ({status}) => {
     return ( 
         <div>
-             <AvatarComp />
+             <AvatarComp status={'Student'} />
             <Offers />
         </div>
      );

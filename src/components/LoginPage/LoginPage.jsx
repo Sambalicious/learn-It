@@ -48,7 +48,7 @@ const Login = () => {
            isSignedIn={true}
            cookiePolicy={'single_host_origin'}
          /> : <div className="flex justify-between mt-4">
-          <h1 className="text-teal-200 hover:text-white md:mr-6 text-bold"> Hello {state.name}! </h1>    
+          <h1 className="text-teal-200 uppercase hover:text-white md:mr-6 text-bold"> Hello {state.name}! </h1>    
          <GoogleLogout
          clientId="642784607442-q1fl97dg1ulb5dvf125thfi01r5usbd4.apps.googleusercontent.com"
          buttonText="Logout"

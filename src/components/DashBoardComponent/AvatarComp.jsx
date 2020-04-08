@@ -5,7 +5,7 @@ import ls from 'local-storage'
 
 
 
-const AvatarComp = () => {
+const AvatarComp = ({status}) => {
   const [name,setName] = useState('');
   const [email,setEmail] = useState('');
   const [image, setImage] = useState('');
@@ -21,12 +21,12 @@ const AvatarComp = () => {
 
     return ( 
         
-        <div class="bg-white bg-purple-100 rounded-lg p-6">
+        <div class=" rounded p-6 bg-indigo-500">
             <img class="h-16 w-16 rounded-full mx-auto" src={image} />
             <div class="text-center">
-              <h2 class="text-lg font-bold mb-2 uppercase">{name} </h2>
-              <div class="text-purple-500 font-bold">Instructor</div>
-              <div class="text-gray-600 font-bold"> {email} </div>
+              <h2 class="text-lg font-bold mb-2 uppercase text-white">{name} </h2>
+              <div class="text-red-400 font-bold">{status} </div>
+              <div class="text-white font-bold"> {email} </div>
              
            </div>
         </div>

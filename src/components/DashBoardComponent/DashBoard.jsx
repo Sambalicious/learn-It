@@ -8,9 +8,9 @@ import Form from './Form';
 
 const DashBoard = () => {
     return ( 
-        <div>
-            <AvatarComp />
-            <h2 className="mb-8 font-bold text-center text-indigo-500">CREATE CONTENT </h2>
+        <div className="bg-pink-100">
+            <AvatarComp status={'Instructor'} />
+            <h2 className="my-6 font-bold text-center text-indigo-500">CREATE CONTENT </h2>
             <Form />
         </div>
      );
