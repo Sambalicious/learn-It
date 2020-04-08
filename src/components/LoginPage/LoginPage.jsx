@@ -2,23 +2,31 @@ import React, {useState, useContext} from 'react';
 import GoogleLogin from 'react-google-login';
 import { GoogleLogout } from 'react-google-login';
 import { GlobalContext } from '../../App';
+import ls from 'local-storage'
 
 
  
 const Login = () => {
   const {handleLogin} =useContext(GlobalContext)
+  
    const [state, setState] = useState(null)
    
 
   const responseGoogle = response => {
     handleLogin(response.profileObj)
     setState(response.profileObj);
+    const {name, email, imageUrl } = response.profileObj
     
-   
+    ls.set('name', name)
+    ls.set('email', email)
+    ls.set('image', imageUrl)
   }
 
   const logout = () => {
-    setState(null)
+    setState(null);
+    ls.set('name', '');
+    ls.set('email', '');
+    ls.set('image', '')
   }
   
     return ( 
@@ -29,7 +37,7 @@ const Login = () => {
            clientId="642784607442-q1fl97dg1ulb5dvf125thfi01r5usbd4.apps.googleusercontent.com"
            render={renderProps  =>  (
              
-             <button className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
+             <button className="inline-block px-4 py-2 mt-4 text-sm leading-none text-white border border-white rounded hover:border-transparent hover:text-teal-500 hover:bg-white lg:mt-0"
               onClick={renderProps.onClick} disabled={renderProps.disabled}>
                Login with Google</button>
            )}
@@ -45,7 +53,7 @@ const Login = () => {
          clientId="642784607442-q1fl97dg1ulb5dvf125thfi01r5usbd4.apps.googleusercontent.com"
          buttonText="Logout"
          onLogoutSuccess={logout}
-         className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"> 
+         className="inline-block px-4 py-2 mt-4 text-sm leading-none text-white border border-white rounded hover:border-transparent hover:text-teal-500 hover:bg-white lg:mt-0"> 
        </GoogleLogout>
        
        </div>  

@@ -2,6 +2,7 @@ import React, { useReducer } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import LandingPage from './components/LandingPage/LandingPage';
 import DashBoard from './components/DashBoardComponent/DashBoard';
+import StudentDashBoard from './components/DashBoardComponent/StudentsDashBoard';
 
 export const GlobalContext = React.createContext();
 
@@ -46,6 +47,7 @@ const [state, dispatch] = useReducer(reducer, InitialState)
        <Switch>   
          <Route path='/' exact component={LandingPage} />
          <Route path='/dashboard'  exact component={DashBoard} />
+         <Route path='/student' exact component={StudentDashBoard} />
        </Switch>
      </Router>
      </GlobalContext.Provider>
