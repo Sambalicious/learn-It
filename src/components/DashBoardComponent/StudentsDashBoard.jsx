@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import StudentComponent from './StudentComponent';
 import { GlobalContext } from '../../App'
+import CannotAccessPage from './CannotAccessPage';
 
 
 const StudentDashBoard = () => {
@@ -11,7 +12,7 @@ const StudentDashBoard = () => {
         <div>
             {
                 state.authDetails ? <StudentComponent /> :
-               ' Login with google to use this service'
+               <CannotAccessPage />
             }
         </div>
      );

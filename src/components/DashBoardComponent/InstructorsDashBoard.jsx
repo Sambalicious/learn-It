@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { GlobalContext } from '../../App';
 import DashBoard from './DashBoard';
+import CannotAccessPage from './CannotAccessPage';
 
 
 
@@ -10,7 +11,7 @@ const InstructorsDashBoard = () => {
     return ( 
         <div>
             {
-                state.authDetails === '' ? 'Login with Google' : <DashBoard />
+                state.authDetails === '' ? <CannotAccessPage /> : <DashBoard />
             }
         </div>
      );
