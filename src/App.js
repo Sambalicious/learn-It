@@ -6,6 +6,7 @@ import Navbar from './Navbar/Navbar';
 import FooterPage from './components/Footer/FooterPage';
 import Courses from './components/CoursesComponent/Courses';
 import InstructorsDashBoard from './components/DashBoardComponent/InstructorsDashBoard';
+import CannotAccessPage from './components/DashBoardComponent/CannotAccessPage';
 
 export const GlobalContext = React.createContext();
 
@@ -52,6 +53,7 @@ const [state, dispatch] = useReducer(reducer, InitialState)
          <Route path='/dashboard'  exact component={InstructorsDashBoard} />
          <Route path='/student' exact component={StudentDashBoard} />
          <Route path='/courses' exact component={Courses} />
+         <Route path='/access-denied' exact component={CannotAccessPage} />
        </Switch>
        <FooterPage />
      </Router>

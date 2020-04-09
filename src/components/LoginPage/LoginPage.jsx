@@ -2,7 +2,7 @@ import React, {useState, useContext} from 'react';
 import GoogleLogin from 'react-google-login';
 import { GoogleLogout } from 'react-google-login';
 import { GlobalContext } from '../../App';
-import {useHistory, useLocation,  } from 'react-router'
+import {useHistory} from 'react-router'
 
 
  
@@ -18,11 +18,7 @@ const Login = () => {
 
   
     const history =useHistory();
-    
-
-    const location = useLocation()
     console.log(history)
-   
 
   const responseGoogle = response => {
 
@@ -40,8 +36,8 @@ const Login = () => {
 
   const logout = () => {
       SetState('')
-      //this will make the window refresh when a user logs out
-      history.go()
+      //this will redirect the user to access denied page from where they can not log in
+      history.push('/access-denied')
    
   }
   
