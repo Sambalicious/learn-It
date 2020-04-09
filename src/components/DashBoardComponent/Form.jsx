@@ -1,17 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import {GlobalContext} from '../../App';
 
 
 
 const Form = () => {
+
+      const {handleAddContent} = useContext(GlobalContext) ;
         const [title, setTitle]= useState('');
         const [description, setDescription] = useState('');
         const [url, setUrl] = useState('');
         const [thumbnail,setThumbnail] =useState('')
+    
+        const handleTitle = (e) => {
+          setTitle(e.target.value)
+        }
 
+        const handleDescription = (e) => {
+          setDescription(e.target.value)
+        }
+
+        const handleUrl = (e) =>{
+          setUrl(e.target.value)
+        }
+
+        const handleThumbnail = (e) => {
+          setThumbnail(e.target.value)
+        }
+
+        const handleSubmit = (e) =>{
+            e.preventDefault();
+            const newCourses = {
+              title,
+              description,
+              url,
+              thumbnail
+
+            }
+            handleAddContent(newCourses)
+
+        }
+
+        
   
     return ( 
         <div className="justify-center md:flex sm:items-center">
-            <form class="container px-4 md:w-full md:max-w-sm">
+            <form onSubmit={handleSubmit} class="container px-4 md:w-full md:max-w-sm">
   <div class="md:flex md:items-center mb-6">
     <div class="md:w-1/3">
       <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
@@ -19,7 +52,7 @@ const Form = () => {
       </label>
     </div>
     <div class="md:w-2/3">
-      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500" id="inline-full-name" type="text" value={title} placeholder="Principles of Web Development by samuel" onChange={e=>setTitle(e.target.value)} />
+      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500" id="inline-full-name" type="text" value={title} placeholder="Principles of Web Development by samuel" onChange={handleTitle} />
     </div>
   </div>
 
@@ -30,7 +63,7 @@ const Form = () => {
       </label>
     </div>
     <div class="md:w-2/3">
-      <textarea class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500" id="inline-full-name" type="text" value={description} onChange={e=>setDescription(e.target.value)}></textarea>
+      <textarea class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500" id="inline-full-name" type="text" value={description} onChange={handleDescription}></textarea>
     </div>
   </div>
 
@@ -41,7 +74,7 @@ const Form = () => {
       </label>
     </div>
     <div class="md:w-2/3">
-      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500" id="inline-full-name" type="url" placeholder="www.youtube.com/videourl" value={url} onChange={e=>setUrl(e.target.value)} />
+      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500" id="inline-full-name" type="url" placeholder="www.youtube.com/videourl" value={url} onChange={handleUrl} />
     </div>
   </div>
 
@@ -52,7 +85,7 @@ const Form = () => {
       </label>
     </div>
     <div class="md:w-2/3">
-      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500" id="inline-full-name" placeholder="www.youtube.com/videourl" type="url" value={thumbnail} onChange={e=>setThumbnail(e.target.value)} />
+      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500" id="inline-full-name" placeholder="www.youtube.com/videourl" type="url" value={thumbnail} onChange={handleThumbnail} />
     </div>
   </div>
   

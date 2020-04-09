@@ -2,7 +2,8 @@ import React, {useState, useContext} from 'react';
 import GoogleLogin from 'react-google-login';
 import { GoogleLogout } from 'react-google-login';
 import { GlobalContext } from '../../App';
-import {useHistory} from 'react-router'
+import createHistory from 'history/createBrowserHistory'
+const history = createHistory();
 
 
  
@@ -17,9 +18,9 @@ const Login = () => {
   const [fullname, setFullname] = useState('');
 
   
-    const history =useHistory();
-    console.log(history)
+  const history = createHistory();
 
+  /////function that is called when a user successfully signs in
   const responseGoogle = response => {
 
     ///store response in the handleLogin button
@@ -29,16 +30,14 @@ const Login = () => {
     
       SetState(response.profileObj);
       const {name} = response.profileObj
-    setFullname(name)    
+        setFullname(name)    
     
     
   }
 
   const logout = () => {
-      SetState('')
-      //this will redirect the user to access denied page from where they can not log in
-      history.push('/access-denied')
-   
+      SetState(null)   
+      history.go(0)
   }
   
     return ( 

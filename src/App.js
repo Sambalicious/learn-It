@@ -12,14 +12,17 @@ export const GlobalContext = React.createContext();
 
 function App() {
   const InitialState = {
-    authDetails: ''
+    authDetails: '',
+    courses : {}
   }
   const reducer = (state, action)=>{
     switch (action.type) {
       case 'LOG_IN': return{
         ...state, authDetails: action.payload
       }
-        case 'LOG_OUT': return state
+        case 'ADD_CONTENT': return {
+          ...state, courses: action.payload
+        }
        
         
     
@@ -34,10 +37,11 @@ function App() {
         payload: response
       })
   }
-  const handleLogOut= () => {
+  const handleAddContent= (details) => {
     navigator.vibrate(200);
     dispatch({
-      type: 'LOG_OUT',
+      type: 'ADD_CONTENT',
+      payload: details
       
     })
 }
@@ -45,7 +49,7 @@ const [state, dispatch] = useReducer(reducer, InitialState)
   
   return (
     <div >
-    <GlobalContext.Provider value={{state,dispatch, handleLogin, handleLogOut}}>
+    <GlobalContext.Provider value={{state,dispatch, handleLogin, handleAddContent}}>
      <Router>
          <Navbar />
        <Switch>   
@@ -53,7 +57,8 @@ const [state, dispatch] = useReducer(reducer, InitialState)
          <Route path='/dashboard'  exact component={InstructorsDashBoard} />
          <Route path='/student' exact component={StudentDashBoard} />
          <Route path='/courses' exact component={Courses} />
-         <Route path='/access-denied' exact component={CannotAccessPage} />
+         <Route path='/access-denied' exact render={()=> !state && <CannotAccessPage />
+            }/>
        </Switch>
        <FooterPage />
      </Router>
