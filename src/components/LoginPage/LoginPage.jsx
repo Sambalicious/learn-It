@@ -2,6 +2,7 @@ import React, {useState, useContext} from 'react';
 import GoogleLogin from 'react-google-login';
 import { GoogleLogout } from 'react-google-login';
 import { GlobalContext } from '../../App';
+import {useHistory, useLocation,  } from 'react-router'
 
 
  
@@ -16,7 +17,11 @@ const Login = () => {
   const [fullname, setFullname] = useState('');
 
   
+    const history =useHistory();
     
+
+    const location = useLocation()
+    console.log(history)
    
 
   const responseGoogle = response => {
@@ -36,7 +41,7 @@ const Login = () => {
   const logout = () => {
       SetState('')
       //this will make the window refresh when a user logs out
-      window.location.reload(true)
+      history.go()
    
   }
   

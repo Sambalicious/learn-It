@@ -1,5 +1,4 @@
-import React, {useContext, useState, useEffect} from 'react';
-import ls from 'local-storage';
+import React, {useContext} from 'react';
 import {GlobalContext} from '../../App';
 
 
