@@ -8,25 +8,24 @@ import ls from 'local-storage'
  
 const Login = () => {
   const {handleLogin} =useContext(GlobalContext)
-  
-   const [state, setState] = useState(null)
+    const [state, SetState] = useState(null)
+   
+  const [fullname, setFullname] = useState('')
+    
    
 
   const responseGoogle = response => {
     handleLogin(response.profileObj)
-    setState(response.profileObj);
-    const {name, email, imageUrl } = response.profileObj
     
-    ls.set('name', name)
-    ls.set('email', email)
-    ls.set('image', imageUrl)
+      SetState(response.profileObj);
+      const {name} = response.profileObj
+    setFullname(name)    
+    
   }
 
   const logout = () => {
-    setState(null);
-    ls.set('name', '');
-    ls.set('email', '');
-    ls.set('image', '')
+      SetState(null)
+   
   }
   
     return ( 
@@ -48,7 +47,7 @@ const Login = () => {
            isSignedIn={true}
            cookiePolicy={'single_host_origin'}
          /> : <div className="flex justify-between mt-4">
-          <h1 className="text-teal-200 uppercase hover:text-white md:mr-6 text-bold"> Hello {state.name}! </h1>    
+          <h1 className="text-teal-200 capitalize hover:text-white md:mr-6 text-bold"> hello {fullname}! </h1>    
          <GoogleLogout
          clientId="642784607442-q1fl97dg1ulb5dvf125thfi01r5usbd4.apps.googleusercontent.com"
          buttonText="Logout"

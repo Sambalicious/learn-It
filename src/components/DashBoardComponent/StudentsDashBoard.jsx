@@ -5,11 +5,13 @@ import { GlobalContext } from '../../App'
 
 const StudentDashBoard = () => {
       const {state} = useContext(GlobalContext)
+            console.log(state)
+            
     return ( 
         <div>
             {
-            !state ? '<div><h2> Login with google to use this service<h2></div' :
-               <StudentComponent />
+                state.authDetails ? <StudentComponent /> :
+               ' Login with google to use this service'
             }
         </div>
      );

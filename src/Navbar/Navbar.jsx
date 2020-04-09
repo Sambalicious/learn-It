@@ -26,7 +26,7 @@ const Navbar = () => {
       <NavLink to="/dashboard" className="block mt-4 mr-4 text-teal-200 lg:inline-block lg:mt-0 hover:text-white">
        Instructor's Dashboard
       </NavLink>
-      <NavLink to="/help" className="block mt-4 text-teal-200 lg:inline-block lg:mt-0 hover:text-white">
+      <NavLink to="/courses" className="block mt-4 text-teal-200 lg:inline-block lg:mt-0 hover:text-white">
           Courses
       </NavLink>
     </div>
