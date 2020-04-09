@@ -6,6 +6,7 @@ import StudentDashBoard from './components/DashBoardComponent/StudentsDashBoard'
 import Navbar from './Navbar/Navbar';
 import FooterPage from './components/Footer/FooterPage';
 import Courses from './components/CoursesComponent/Courses';
+import InstructorsDashBoard from './components/DashBoardComponent/InstructorsDashBoard';
 
 export const GlobalContext = React.createContext();
 
@@ -49,7 +50,7 @@ const [state, dispatch] = useReducer(reducer, InitialState)
          <Navbar />
        <Switch>   
          <Route path='/' exact component={LandingPage} />
-         <Route path='/dashboard'  exact component={DashBoard} />
+         <Route path='/dashboard'  exact component={InstructorsDashBoard} />
          <Route path='/student' exact component={StudentDashBoard} />
          <Route path='/courses' exact component={Courses} />
        </Switch>

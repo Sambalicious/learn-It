@@ -10,7 +10,9 @@ const Login = () => {
   const {handleLogin} =useContext(GlobalContext)
     const [state, SetState] = useState(null)
    
-  const [fullname, setFullname] = useState('')
+  const [fullname, setFullname] = useState('');
+
+  
     
    
 
@@ -21,10 +23,12 @@ const Login = () => {
       const {name} = response.profileObj
     setFullname(name)    
     
+    
   }
 
   const logout = () => {
-      SetState(null)
+      SetState('')
+      window.location.reload(true)
    
   }
   
@@ -44,7 +48,6 @@ const Login = () => {
            buttonText="Login"
            onSuccess={responseGoogle}
            onFailure={responseGoogle}
-           isSignedIn={true}
            cookiePolicy={'single_host_origin'}
          /> : <div className="flex justify-between mt-4">
           <h1 className="text-teal-200 capitalize hover:text-white md:mr-6 text-bold"> hello {fullname}! </h1>    
