@@ -18,9 +18,7 @@ const Login = () => {
 
   
   const history = useHistory();
-  
-
-  /////function that is called when a user successfully signs in
+   /////function that is called when a user successfully signs in
   const responseGoogle = response => {
 
     ///store response in the handleLogin button

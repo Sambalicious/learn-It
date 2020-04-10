@@ -5,7 +5,7 @@ import access from '../../utils/img/Access.jpg'
 
 const CannotAccessPage = () => {
     return ( 
-        <div className="text-center">
+        <div className="container text-center">
                  <h1 className="text-center text-red-500 text-lg my-6 font-bold">Access Denied!</h1>
              <div className="md:flex justify-center">
                  <div>

@@ -8,8 +8,9 @@ const Form = () => {
       const {handleAddContent} = useContext(GlobalContext) ;
         const [title, setTitle]= useState('');
         const [description, setDescription] = useState('');
-        const [url, setUrl] = useState('');
-        const [thumbnail,setThumbnail] =useState('')
+        const [video, setVideo] = useState(null);
+        const [image,setImage] =useState(null);
+        const [author, setAuthor] = useState('')
     
         const handleTitle = (e) => {
           setTitle(e.target.value)
@@ -19,12 +20,15 @@ const Form = () => {
           setDescription(e.target.value)
         }
 
-        const handleUrl = (e) =>{
-          setUrl(e.target.value)
+        const handleVideo = (e) =>{
+          setVideo(e.target.value)
         }
 
-        const handleThumbnail = (e) => {
-          setThumbnail(e.target.value)
+        const handleImage = (e) => {
+          setImage(e.target.value)
+        }
+        const handleAuthor = (e) =>{
+          setAuthor(e.target.value)
         }
 
         const handleSubmit = (e) =>{
@@ -32,8 +36,9 @@ const Form = () => {
             const newCourses = {
               title,
               description,
-              url,
-              thumbnail
+              author,
+              video,
+              image,
 
             }
             handleAddContent(newCourses)
@@ -56,6 +61,8 @@ const Form = () => {
     </div>
   </div>
 
+  
+
   <div class="md:flex md:items-center mb-6">
     <div class="md:w-1/3">
       <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
@@ -70,23 +77,34 @@ const Form = () => {
   <div class="md:flex md:items-center mb-6">
     <div class="md:w-1/3">
       <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
-        Course Link
+          Videos
       </label>
     </div>
     <div class="md:w-2/3">
-      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500" id="inline-full-name" type="url" placeholder="www.youtube.com/videourl" value={url} onChange={handleUrl} />
+      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500" id="inline-full-name" type="file" value={video} onChange={handleVideo} />
     </div>
   </div>
 
   <div class="md:flex md:items-center mb-6">
     <div class="md:w-1/3">
       <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
-        Course Thumbnail Url
+        Cover Image
       </label>
     </div>
     <div class="md:w-2/3">
-      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500" id="inline-full-name" placeholder="www.youtube.com/videourl" type="url" value={thumbnail} onChange={handleThumbnail} />
+      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500" id="inline-full-name"  type="file" value={image} onChange={handleImage} />
     </div>
+  </div>
+
+  <div class="md:flex md:items-center mb-6">
+    <div class="md:w-1/3">
+      <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+            Author
+          </label>
+        </div>
+        <div class="md:w-2/3">
+          <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500" id="inline-full-name" type="text" value={author} placeholder="e.g Samuel Ayegbusi" onChange={handleAuthor} />
+        </div>
   </div>
   
   
