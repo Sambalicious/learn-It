@@ -6,7 +6,7 @@ import CannotAccessPage from './CannotAccessPage';
 
 const StudentDashBoard = () => {
       const {state} = useContext(GlobalContext)
-            console.log(state)
+            
             
     return ( 
         <div>

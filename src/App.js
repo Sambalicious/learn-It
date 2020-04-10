@@ -8,6 +8,7 @@ import Courses from './components/CoursesComponent/Courses';
 import InstructorsDashBoard from './components/DashBoardComponent/InstructorsDashBoard';
 import CannotAccessPage from './components/DashBoardComponent/CannotAccessPage';
 
+
 export const GlobalContext = React.createContext();
 
 function App() {
@@ -57,7 +58,7 @@ const [state, dispatch] = useReducer(reducer, InitialState)
          <Route path='/dashboard'  exact component={InstructorsDashBoard} />
          <Route path='/student' exact component={StudentDashBoard} />
          <Route path='/courses' exact component={Courses} />
-         <Route path='/access-denied' exact render={()=> !state && <CannotAccessPage />
+         <Route path='/access-denied' exact render={()=> !state.authDetails && <CannotAccessPage />
             }/>
        </Switch>
        <FooterPage />

@@ -2,8 +2,13 @@ import React, {useState, useContext} from 'react';
 import GoogleLogin from 'react-google-login';
 import { GoogleLogout } from 'react-google-login';
 import { GlobalContext } from '../../App';
-import createHistory from 'history/createBrowserHistory'
-const history = createHistory();
+import {useHistory} from 'react-router';
+
+
+
+//  import createHistory from 'history/createBrowserHistory'
+  //const history = createHistory();
+
 
 
  
@@ -18,7 +23,8 @@ const Login = () => {
   const [fullname, setFullname] = useState('');
 
   
-  const history = createHistory();
+  const history = useHistory();
+  console.log(history)
 
   /////function that is called when a user successfully signs in
   const responseGoogle = response => {
@@ -36,8 +42,9 @@ const Login = () => {
   }
 
   const logout = () => {
-      SetState(null)   
-      history.go(0)
+      SetState(null)  
+      history.go(0) 
+      history.push('/access-denied')
   }
   
     return ( 
