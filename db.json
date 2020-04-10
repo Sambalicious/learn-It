@@ -1,17 +1,72 @@
 {
-  "posts": [
+  "courses": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "title": "Web development Course + Build 10 Projects",
+      "Description": "lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.",
+      "author": "Samuel Ayegbusi"
+    },
+    {
+      "id": 2,
+      "title": "Introduction to Self Development Expertise",
+      "Description": "lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.",
+      "author": "Tony Elumelu"
+    },
+    {
+      "id": 3,
+      "title": "Learn the principle of Graphics Design",
+      "Description": "lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.",
+      "author": "Esther Ilori"
+    },
+    {
+      "id": 4,
+      "title": "The Principles of Business",
+      "Description": "lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.",
+      "author": "Aliko Dangote"
+    },
+    {
+      "id": 5,
+      "title": "The Complete Guide to Project Management",
+      "Description": "lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.",
+      "author": "Femi Otedola"
+    },
+    {
+      "id": 6,
+      "title": "Artificial Intelligence Mastery",
+      "Description": "lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.",
+      "author": "Mike Adenuga"
+    },
+    {
+      "id": 7,
+      "title": "The Complete Public Speaking Course",
+      "Description": "orem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.",
+      "author": "Yemi Osinbajo"
+    },
+    {
+      "id": 8,
+      "title": "Fundamental Approach to Self Discovery",
+      "Description": "orem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.",
+      "author": "Fakile Rasaq"
+    },
+    {
+      "id": 9,
+      "title": "Mathematics Made Easy For Kids",
+      "Description": "orem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.",
+      "author": "Idumu Olayinka"
+    },
+    {
+      "title": "introduction to data science",
+      "description": "Learn the rudiment of data science using pyton 21",
+      "author": "Osunkile Oluwatayo",
+      "id": 10
     }
   ],
   "comments": [
     {
-        "id": 1,
-        "body": "some comment",
-        "postId": 1
-      }
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
   ],
   "profile": {
     "name": "typicode"
