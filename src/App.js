@@ -23,12 +23,10 @@ function App() {
       }
         case 'ADD_CONTENT': return {
           ...state, courses: action.payload
-        }
-       
-        
+        }      
     
       default: return state
-        break;
+      
     }
   }
   const handleLogin= (response) => {

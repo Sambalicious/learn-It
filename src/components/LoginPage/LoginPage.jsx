@@ -5,15 +5,9 @@ import { GlobalContext } from '../../App';
 import {useHistory} from 'react-router';
 
 
-
-//  import createHistory from 'history/createBrowserHistory'
-  //const history = createHistory();
-
-
-
  
 const Login = () => {
-  //calss the handleLogin action from GlobalContext
+  // the handleLogin action from GlobalContext
   const {handleLogin} = useContext(GlobalContext)
 
   //initialized and empty state
@@ -40,11 +34,10 @@ const Login = () => {
     
     
   }
-
+  ///handle logout and reload the page
   const logout = () => {
       SetState(null)  
       history.go(0) 
-      history.push('/access-denied')
   }
   
     return ( 

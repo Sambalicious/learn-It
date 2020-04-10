@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import palms from '../../utils/img/palms.png'
 import OfferComponent from './OfferComponent'
 

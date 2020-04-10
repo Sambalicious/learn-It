@@ -45,7 +45,7 @@ const CarouselPage = () => {
                     
                 </div>
                 <div>
-                    <img src={bg4} />
+                    <img src={bg4} alt="slide_photos" />
                     <div className="md:-mt-64 text-center text-white bg-indigo-600">
                         <button class="bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Get started</button>
                         
