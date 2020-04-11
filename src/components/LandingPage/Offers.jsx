@@ -32,7 +32,7 @@ const Offers = () => {
         
                 <div className="md:grid grid-cols-3 grid-rows-2 gap-4 ">
                 
-                {contents ? contents.map((content) => <OfferComponent content={content.title} pics={palms} author={content.author} description={content.description} key={content.id} />): null }
+                {Array.isArray(contents) && contents ? contents.map((content) => <OfferComponent content={content.title} pics={palms} author={content.author} description={content.description} key={content.id} />): null }
                                                                   
             </div>
             </div>
