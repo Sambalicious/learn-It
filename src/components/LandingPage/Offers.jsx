@@ -7,7 +7,7 @@ import Courses from '../CoursesComponent/Courses';
 const Offers = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
-    const [contents, setContents ] = useState({});
+    const [contents, setContents ] = useState([]);
 
     useEffect(()=>{
         axios.get('http://localhost:3004/courses')
@@ -19,7 +19,7 @@ const Offers = () => {
         }).catch(error=>{
 
             setLoading(false);
-            setContents({});
+            setContents([]);
             setError(error.message, 'Ooops! something went wrong');
             
         })
@@ -32,7 +32,7 @@ const Offers = () => {
         
                 <div className="md:grid grid-cols-3 grid-rows-2 gap-4 ">
                 
-                {contents === {} ? contents.map((content) => <OfferComponent content={content.title} pics={palms} author={content.author} description={content.description} key={content.id} />): null }
+                {contents ? contents.map((content) => <OfferComponent content={content.title} pics={palms} author={content.author} description={content.description} key={content.id} />): null }
                                                                   
             </div>
             </div>
