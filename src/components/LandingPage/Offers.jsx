@@ -7,18 +7,14 @@ import Courses from '../CoursesComponent/Courses';
 const Offers = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
-    const [contents, setContents ] = useState([]);
+    const [contents, setContents ] = useState({});
 
     useEffect(()=>{
         axios.get('http://localhost:3004/courses')
         .then(response=>{
             setLoading(false);
             setContents(response.data);
-            setError('')
-            console.log(response.data)
-            
-            
-            
+            setError('');  
             
         }).catch(error=>{
 
@@ -26,23 +22,20 @@ const Offers = () => {
             setContents({});
             setError(error.message, 'Ooops! something went wrong');
             
-            
         })
     }, [])
 
-    
+    console.log(contents)
     return ( 
             <div className=" text-center mb-4 bg-purple-100">
             <div className="text-black text-center text-xl font-bold py-6 ">Available Courses</div>
         
                 <div className="md:grid grid-cols-3 grid-rows-2 gap-4 ">
-                    
-                    {contents.map((content) => <OfferComponent content={content.title} pics={palms} author={content.author} description={content.description} key={content.id} />)  }
                 
-                                                  
-
-        </div>
-        </div>
+                {contents === {} ? contents.map((content) => <OfferComponent content={content.title} pics={palms} author={content.author} description={content.description} key={content.id} />): null }
+                                                                  
+            </div>
+            </div>
      );
      
 }

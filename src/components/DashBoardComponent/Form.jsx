@@ -8,8 +8,8 @@ const Form = () => {
       const {handleAddContent} = useContext(GlobalContext) ;
         const [title, setTitle]= useState('');
         const [description, setDescription] = useState('');
-        const [video, setVideo] = useState(null);
-        const [image,setImage] =useState(null);
+        const [video, setVideo] = useState('');
+        const [image,setImage] =useState('');
         const [author, setAuthor] = useState('')
     
         const handleTitle = (e) => {
@@ -21,11 +21,12 @@ const Form = () => {
         }
 
         const handleVideo = (e) =>{
-          setVideo(e.target.value)
+          setVideo(e.target.files[0])
+          console.log('handle video cliked')
         }
 
         const handleImage = (e) => {
-          setImage(e.target.value)
+          setImage(e.target.files[0])
         }
         const handleAuthor = (e) =>{
           setAuthor(e.target.value)
@@ -81,7 +82,7 @@ const Form = () => {
       </label>
     </div>
     <div class="md:w-2/3">
-      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500" id="inline-full-name" type="file" value={video} onChange={handleVideo} />
+      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500" id="inline-full-name" type="file" onChange={handleVideo} />
     </div>
   </div>
 
@@ -92,7 +93,7 @@ const Form = () => {
       </label>
     </div>
     <div class="md:w-2/3">
-      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500" id="inline-full-name"  type="file" value={image} onChange={handleImage} />
+      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500" id="inline-full-name"  type="file"  onChange={handleImage} />
     </div>
   </div>
 
