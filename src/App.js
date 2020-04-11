@@ -7,6 +7,7 @@ import FooterPage from './components/Footer/FooterPage';
 import Courses from './components/CoursesComponent/Courses';
 import InstructorsDashBoard from './components/DashBoardComponent/InstructorsDashBoard';
 import CannotAccessPage from './components/DashBoardComponent/CannotAccessPage';
+import StarRating from './components/StarRating';
 
 
 export const GlobalContext = React.createContext();

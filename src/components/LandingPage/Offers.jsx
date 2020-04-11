@@ -27,12 +27,12 @@ const Offers = () => {
 
     console.log(contents)
     return ( 
-            <div className=" text-center mb-4 bg-purple-100">
-            <div className="text-black text-center text-xl font-bold py-6 ">Available Courses</div>
+            <div className="mb-4 text-center bg-purple-100 ">
+            <div className="py-6 text-xl font-bold text-center text-black ">Available Courses</div>
         
-                <div className="md:grid grid-cols-3 grid-rows-2 gap-4 ">
+                <div className="grid-cols-3 grid-rows-2 gap-4 md:grid ">
                 
-                {Array.isArray(contents) && contents ? contents.map((content) => <OfferComponent content={content.title} pics={palms} author={content.author} description={content.description} key={content.id} />): null }
+                {Array.isArray(contents) && contents ? contents.map((content) => <OfferComponent title={content.title} pics={palms} author={content.author} description={content.description} key={content.id} />): null }
                                                                   
             </div>
             </div>
