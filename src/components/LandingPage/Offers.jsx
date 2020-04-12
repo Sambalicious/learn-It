@@ -30,7 +30,7 @@ const Offers = () => {
             <div className="mb-4 text-center bg-purple-100 ">
             <div className="py-6 text-xl font-bold text-center text-black ">Available Courses</div>
         
-                <div className="grid-cols-3 grid-rows-2 gap-4 md:grid ">
+                <div className=" md:grid md:grid-cols-3 md:grid-rows-2 md:gap-4 ">
                 
                 {Array.isArray(contents) && contents ? contents.map((content) => <OfferComponent title={content.title} pics={palms} author={content.author} description={content.description} key={content.id} />): null }
                                                                   
