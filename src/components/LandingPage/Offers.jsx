@@ -14,6 +14,7 @@ const Offers = () => {
         .then(response=>{
             setLoading(false);
             setContents(response.data);
+            console.log(response.data)
             setError('');  
             
         }).catch(error=>{
@@ -32,7 +33,15 @@ const Offers = () => {
         
                 <div className=" md:grid md:grid-cols-3 md:grid-rows-2 md:gap-4 ">
                 
-                {Array.isArray(contents) && contents ? contents.map((content) => <OfferComponent title={content.title} pics={palms} author={content.author} description={content.description} key={content.id} />): null }
+                {Array.isArray(contents) && contents ? contents.map((content) =>
+                 <OfferComponent 
+                        title={content.title}
+                        pics={palms}
+                        author={content.author} 
+                        description={content.description} 
+                        key={content.id} 
+                   />)
+                   : null }
                                                                   
             </div>
             </div>

@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import {GlobalContext} from '../../App';
+import axios from 'axios';
 
 
 
@@ -22,7 +23,7 @@ const Form = () => {
 
         const handleVideo = (e) =>{
           setVideo(e.target.files[0])
-          console.log('handle video cliked')
+          
         }
 
         const handleImage = (e) => {
@@ -34,17 +35,47 @@ const Form = () => {
 
         const handleSubmit = (e) =>{
             e.preventDefault();
-            const newCourses = {
-              title,
-              description,
-              author,
-              video,
-              image,
+            
+             const courseData = new FormData();
 
-            }
-            handleAddContent(newCourses)
+             courseData.append("title", title);
+             courseData.append("description", description);
+             courseData.append("author", author);
+             courseData.append("image", image);
+             courseData.append("video", video);
 
-        }
+             axios.post('https://www.googleapis.com/upload/youtube/v3/videos', courseData)
+             .then(response => console.log(response.data))
+
+
+
+
+              {/**
+
+             axios.post('http://localhost:3004/courses', courseData);
+             axios.post('https://www.googleapis.com/upload/youtube/v3/videos', {
+               file: courseData,
+               token:this.accessToken
+             })
+               
+              axios.post('https://www.googleapis.com/upload/youtube/v3/videos?key=[AIzaSyAzkRilV1frsYInHzR41Qq1SgZWxyqdYg8]',{
+                Authorization: Bearer [642784607442-q1fl97dg1ulb5dvf125thfi01r5usbd4.apps.googleusercontent.com],
+                Accept: application/json,
+                Content-Type: application/json,
+                file: courseData
+              })
+
+
+            
+ */}
+
+
+
+
+
+              }
+
+
 
         
   
@@ -112,7 +143,7 @@ const Form = () => {
   <div class="md:flex md:items-center">
     <div class="md:w-1/3"></div>
     <div class="md:w-2/3">
-      <button class="shadow mb-6 bg-indigo-500 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
+      <button class="shadow mb-6 bg-indigo-500 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button" onSubmit={handleSubmit}>
         Add Content
       </button>
     </div>
