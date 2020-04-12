@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import {GlobalContext} from '../../App';
 import axios from 'axios';
 
@@ -33,6 +33,18 @@ const Form = () => {
           setAuthor(e.target.value)
         }
 
+        useEffect(()=>{
+
+          axios.post("https://api.imgur.com/3/image", image, {
+                        headers:{
+                          Authorization: "client-ID 890290167c69fc4"
+                        },
+                      }).then(response=>console.log(response.data))
+                      .then(error => console.log (error))
+
+
+},[])
+
         const handleSubmit = (e) =>{
             e.preventDefault();
             
@@ -44,11 +56,11 @@ const Form = () => {
              courseData.append("image", image);
              courseData.append("video", video);
 
-             axios.post('https://www.googleapis.com/upload/youtube/v3/videos', courseData)
+             {/*axios.post('https://www.googleapis.com/upload/youtube/v3/videos', courseData)
              .then(response => console.log(response.data))
 
-
-
+ */}          
+              
 
               {/**
 
