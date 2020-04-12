@@ -10912,7 +10912,13 @@ video {
   transition-duration: 1000ms;
 }
 
-input[type="raio"]{
+.star-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type="radio"]{
   display: none;
 }
 
