@@ -14,7 +14,6 @@ const Offers = () => {
         .then(response=>{
             setLoading(false);
             setContents(response.data);
-            console.log(response.data)
             setError('');  
             
         }).catch(error=>{
@@ -26,7 +25,7 @@ const Offers = () => {
         })
     }, [])
 
-    console.log(contents)
+    
     return ( 
             <div className="mb-4 text-center bg-purple-100 ">
             <div className="py-6 text-xl font-bold text-center text-black ">Available Courses</div>
@@ -41,7 +40,7 @@ const Offers = () => {
                         description={content.description} 
                         key={content.id} 
                    />)
-                   : null }
+                   : 'Loading' }
                                                                   
             </div>
             </div>

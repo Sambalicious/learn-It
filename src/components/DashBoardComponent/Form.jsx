@@ -37,6 +37,8 @@ const Form = () => {
         const [imageUrl, setImageUrl] = useState('');
         const [imageError, setImageError] = useState('');
 
+
+        {/**
         useEffect(()=>{            
           axios.post("https://api.imgur.com/3/image",image, {
                         headers:{
@@ -45,11 +47,27 @@ const Form = () => {
                       }).then(response=> {
                         setImageUrl(response.data.data.link);
                         console.log(response.data.data.link)})
-                      .catch(Error => {
+                      .catch(error => {
                         setImageError(Error)
                         console.log(imageError)
                       })                         
-        },[image])
+        },[image]);
+         */}
+
+        useEffect(()=>{
+          axios.post("https://www.googleapis.com/youtube/v3/videos?part=snippet&autoLevels=true&notifySubscribers=true&key=AIzaSyAzkRilV1frsYInHzR41Qq1SgZWxyqdYg8",
+              {
+                Authorization: "Bearer 642784607442-q1fl97dg1ulb5dvf125thfi01r5usbd4.apps.googleusercontent.com",
+                Accept: "application/json",
+                "Content-Type": "application/json"
+              }    
+
+              ).then(response=>{
+                console.log(response)
+              }).catch(error =>{
+                console.log(error)
+              })
+        })
 
           
         const handleSubmit = (e) =>{
@@ -93,7 +111,7 @@ const Form = () => {
   <InputField label={'Upload video'}  onChange={handleVideo} type={'file'} accept={'video/mp4,video/x-m4v,video'}  />
   <InputField label={'Course Cover Image'}  onChange={handleImage} type={'file'} accept={'image/*'}  />
   <InputField label={'Author'} placeholder={'e.g Samuel Ayegbusi'}  onChange={handleAuthor} type={'text'}  />
-  <Button onSubmit={handleSubmit} />
+  <Button onSubmit={handleSubmit} label={'Add Content'} />
  
 </form>
         </div>

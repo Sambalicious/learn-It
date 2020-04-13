@@ -7,7 +7,7 @@ const StarRating = () => {
     const [rating,setRating] = useState(null);
     const [hover, setHover] = useState(null)
     return ( 
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center mb-4">
             {[...Array(5)].map((star, i)=>{
                 const ratingValue = i + 1
                 return (<label >
@@ -28,6 +28,7 @@ const StarRating = () => {
                   />
                  </label>)
             })}
+            <div className="ml-4">{rating ? `Rated: ${rating} stars`: null} </div>
                         
         </div>
      );
