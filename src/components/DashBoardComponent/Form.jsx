@@ -1,10 +1,12 @@
 import React, { useState,useEffect } from 'react';
 import axios from 'axios';
+import { toast} from  'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 import InputField from './InputField';
 import Button from './Button';
 
 
-
+toast.configure()
 const Form = () => {
 
         const [title, setTitle]= useState('');
@@ -48,20 +50,20 @@ const Form = () => {
                         setImageUrl(response.data.data.link);
                         console.log(response.data.data.link)})
                       .catch(error => {
-                        setImageError(Error)
+                        setImageError(error)
                         console.log(imageError)
+                       
                       })                         
         },[image]);
          
 
         useEffect(()=>{
-          axios.post("https://www.googleapis.com/youtube/v3/videos",
-                     video, {
-                  headers: {
-                "Authorization": "Bearer ya29.a0Ae4lvC2R6TUz1hR8juqDbR8dwHB3GNuyMTBCgVLvIm2Ef3GNcT-Ovxuh0tJrMvkfv4yGMAsiJNQiVW2LYsmLjvaW-hXY9ufzxBTHJ0AVMU_plcOVM3cmgMvDh4raX7ppPnnrMq9a67K52jHf4b7wM7LpHNb4ZI3zi-Q",
+          axios.post("https://www.googleapis.com/youtube/v3/videos?key=AIzaSyAzkRilV1frsYInHzR41Qq1SgZWxyqdYg8",
+                 {
+                "authorization": "Bearer ya29.a0Ae4lvC2R6TUz1hR8juqDbR8dwHB3GNuyMTBCgVLvIm2Ef3GNcT-Ovxuh0tJrMvkfv4yGMAsiJNQiVW2LYsmLjvaW-hXY9ufzxBTHJ0AVMU_plcOVM3cmgMvDh4raX7ppPnnrMq9a67K52jHf4b7wM7LpHNb4ZI3zi-Q",
                 "Accept": "application/json",
-                "Content-Type": "application/json"
-              }}).then(response=>{
+                "Content-Type": "application/json", video
+              }).then(response=>{
                 console.log(response)
               }).catch(error =>{
                 console.log(error)
@@ -74,6 +76,7 @@ const Form = () => {
         const handleSubmit = (e) =>{
             e.preventDefault();
             
+            
              const courseData = new FormData();
 
              courseData.append("title", title);
@@ -81,6 +84,9 @@ const Form = () => {
              courseData.append("author", author);
              courseData.append("image", imageUrl);
              courseData.append("video", video);
+
+             toast.success('You have succesfully created a content');
+            
         }
 
 
@@ -108,7 +114,7 @@ const Form = () => {
     </div>
   </div>
 
-  <InputField label={'Upload video'}  onChange={handleVideo} type={'file'} accept={'video/mp4,video/x-m4v,video'}  />
+  <InputField label={'Upload video'}  onChange={handleVideo} type={'file'} accept={'video/*'}  />
   <InputField label={'Course Cover Image'}  onChange={handleImage} type={'file'} accept={'image/*'}  />
   <InputField label={'Author'} placeholder={'e.g Samuel Ayegbusi'}  onChange={handleAuthor} type={'text'}  />
   <Button onSubmit={handleSubmit} label={'Add Content'} />

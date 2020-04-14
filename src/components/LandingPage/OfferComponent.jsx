@@ -1,15 +1,21 @@
 import React, { Fragment } from 'react'
 import StarRating from '../StarRating';
 import Button from '../DashBoardComponent/Button';
+import { toast} from  'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
-
+toast.configure()
 const OfferComponent = ({pics, title, description, author}) => {
+    const addCourseToFav = () =>{
+        toast.success('Course has been added!')
+    }
+
     return ( 
         <Fragment>
 
             <div className="justify-center mx-2 mb-4 sm:container md:shadow-xl sm:shadow-md md:flex">
 
-                    <div class="max-w-sm rounded overflow-hidden shadow-lg  transition duration-500 ease-in-out  transform hover:-translate-y-1 hover:scale-110">
+                    <div class="max-w-sm rounded overflow-hidden shadow-lg  transition duration-500 ease-in-out  transform hover:-translate-y-1 hover:scale-105">
                         <img class="w-full" src={pics} alt="Sunset in the mountains"/>
                     <div class="px-6 py-4">
                         
@@ -24,7 +30,7 @@ const OfferComponent = ({pics, title, description, author}) => {
                     
                     </div>
                     <div class="px-6 py-4">
-                    <Button label={'Add to Favourite'} />
+                    <Button label={'Add to Favourite'} onSubmit={addCourseToFav} />
                     <StarRating />  
                     </div>
 
