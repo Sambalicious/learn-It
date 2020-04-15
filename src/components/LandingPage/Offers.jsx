@@ -2,7 +2,6 @@ import React, { useState,useEffect} from 'react'
 import palms from '../../utils/img/palms.png'
 import OfferComponent from './OfferComponent'
 import axios from 'axios';
-import Courses from '../CoursesComponent/Courses';
 
 const Offers = () => {
     const [loading, setLoading] = useState(true);
@@ -30,7 +29,7 @@ const Offers = () => {
             <div className="mb-4 text-center bg-purple-100 ">
             <div className="py-6 text-xl font-bold text-center text-black ">Available Courses</div>
         
-                <div className=" md:grid md:grid-cols-3 md:grid-rows-2 md:gap-4 ">
+                <div className=" md:grid md:grid-cols-3 md:grid-rows-2 md:gap-4">
                 
                 {Array.isArray(contents) && contents ? contents.map((content) =>
                  <OfferComponent 

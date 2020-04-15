@@ -1,12 +1,14 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, lazy,Suspense } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import LandingPage from './components/LandingPage/LandingPage';
-import StudentDashBoard from './components/DashBoardComponent/StudentsDashBoard';
+
 import Navbar from './Navbar/Navbar';
 import FooterPage from './components/Footer/FooterPage';
-import Courses from './components/CoursesComponent/Courses';
-import InstructorsDashBoard from './components/DashBoardComponent/InstructorsDashBoard';
-import CannotAccessPage from './components/DashBoardComponent/CannotAccessPage';
+const Courses = lazy(()=>import ('./components/CoursesComponent/Courses'));
+const InstructorsDashBoard  = lazy(()=>import ('./components/DashBoardComponent/InstructorsDashBoard'));
+const CannotAccessPage = lazy(()=>import ('./components/DashBoardComponent/CannotAccessPage'));
+const LandingPage = lazy(()=>import('./components/LandingPage/LandingPage'));
+const StudentDashBoard = lazy(()=>import('./components/DashBoardComponent/StudentsDashBoard'));
+
 
 
 
@@ -53,12 +55,14 @@ const [state, dispatch] = useReducer(reducer, InitialState)
      <Router>
          <Navbar />
        <Switch>   
+       <Suspense fallback={<div className='spinner'> <h3>Loading...</h3></div>}>
          <Route path='/' exact component={LandingPage} />
          <Route path='/dashboard'  exact component={InstructorsDashBoard} />
          <Route path='/student' exact component={StudentDashBoard} />
          <Route path='/courses' exact component={Courses} />
          <Route path='/access-denied' exact render={()=> !state.authDetails && <CannotAccessPage />
             }/>
+        </Suspense>
        </Switch>
        <FooterPage />
      </Router>

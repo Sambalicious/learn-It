@@ -10927,6 +10927,35 @@ input[type="radio"]{
   transition: color 200ms;
 }
 
+.spinner:before{
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  height: 80px;
+  width: 80px;
+  margin-top: -30px;
+  margin-left: -30px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: limegreen;
+  border-bottom-color: limegreen;
+  animation: spinner 0.7s ease infinite;
+}
+
+div .spinner h3{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+@keyframes spinner {
+  to{
+    transform: rotate(360deg);
+  }
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;

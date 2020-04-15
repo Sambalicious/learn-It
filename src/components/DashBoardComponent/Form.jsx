@@ -57,21 +57,7 @@ const Form = () => {
         },[image]);
          
 
-        useEffect(()=>{
-          axios.post("https://www.googleapis.com/youtube/v3/videos?key=AIzaSyAzkRilV1frsYInHzR41Qq1SgZWxyqdYg8",
-                 {
-                "authorization": "Bearer ya29.a0Ae4lvC2R6TUz1hR8juqDbR8dwHB3GNuyMTBCgVLvIm2Ef3GNcT-Ovxuh0tJrMvkfv4yGMAsiJNQiVW2LYsmLjvaW-hXY9ufzxBTHJ0AVMU_plcOVM3cmgMvDh4raX7ppPnnrMq9a67K52jHf4b7wM7LpHNb4ZI3zi-Q",
-                "Accept": "application/json",
-                "Content-Type": "application/json", video
-              }).then(response=>{
-                console.log(response)
-              }).catch(error =>{
-                console.log(error)
-              })
-        })
-
-        {/**" */}
-
+       
           
         const handleSubmit = (e) =>{
             e.preventDefault();

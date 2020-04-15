@@ -6,7 +6,7 @@ import 'jquery';
 
 
 
-const handleYouTubeApi = () =>{
+
 
 
 
@@ -195,4 +195,3 @@ var signinCallback = function (result){
       }.bind(this)
     });
   };
-}
