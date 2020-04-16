@@ -10945,7 +10945,8 @@ input[type="radio"]{
 }
 
 .div .spinner{
-  width:100vw
+  width:100vw;
+  height: 100vh;
 }
 
 div .spinner h3{
