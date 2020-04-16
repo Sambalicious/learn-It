@@ -10944,6 +10944,10 @@ input[type="radio"]{
   animation: spinner 0.7s ease infinite;
 }
 
+.div .spinner{
+  width:100vw
+}
+
 div .spinner h3{
   display: flex;
   justify-content: center;
