@@ -11,7 +11,6 @@ import bg7 from '../../utils/img/bg7.jpg';
 import palms4 from '../../utils/img/palms4.jpg';
 
 
-
 const CarouselPage = () => {
     return ( 
         <div>
@@ -20,8 +19,7 @@ const CarouselPage = () => {
                     <img src={bg1} alt="slide_photos" />
                     <div className="md:-mt-64 sm:-mt-16 text-center text-white bg-indigo-600">
                         <button class="bg-transparent hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Get started</button>
-                        
-                    </div>
+                     </div>
                    
                 
                 </div>

@@ -5,10 +5,8 @@ import Offers from './Offers';
 const LandingPage = () => {
     return ( 
         <div>
-            
             <CarouselPage />
             <Offers />
-            
         </div>
      );
 }
