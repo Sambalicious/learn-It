@@ -57,7 +57,7 @@ const [state, dispatch] = useReducer(reducer, InitialState)
        <Switch>   
        <Suspense fallback={<div className='spinner'> <h3>Loading...</h3></div>}>
          <Route path='/' exact component={LandingPage} />
-         <Route path='/dashboard'  exact component={InstructorsDashBoard} />
+         <Route path='/instructor'  exact component={InstructorsDashBoard} />
          <Route path='/student' exact component={StudentDashBoard} />
          <Route path='/courses' exact component={Courses} />
          <Route path='/access-denied' exact render={()=> !state.authDetails && <CannotAccessPage />
