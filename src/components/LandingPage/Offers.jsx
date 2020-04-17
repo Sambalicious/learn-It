@@ -25,20 +25,22 @@ const Offers = () => {
 
     
     return ( 
+
             <div className="mb-4 text-center bg-purple-100 ">
-            <div className="py-6 text-xl font-bold text-center text-black ">Available Courses</div>
-        
-                <div className=" md:grid md:grid-cols-3 md:grid-rows-2 md:gap-4">
+                <div className="py-6 text-xl font-bold text-center text-black ">Available Courses</div>
                 
-                {Array.isArray(contents) && contents ? contents.map((content) =>
-                 <OfferComponent 
-                        title={content.title}
-                        pics={palms}
-                        author={content.author} 
-                        description={content.description} 
-                        key={content.id} 
-                   />)
-                   : 'Loading' }
+                    {loading ? <div className='my-40 spinner'> <h3 className='mt-0'>Loading...</h3></div> : null}
+                    <div className=" md:grid md:grid-cols-3 md:grid-rows-2 md:gap-4">
+                    
+                    {Array.isArray(contents) && contents ? contents.map((content) =>
+                    <OfferComponent 
+                            title={content.title}
+                            pics={palms}
+                            author={content.author} 
+                            description={content.description} 
+                            key={content.id} 
+                    />)
+                   : <div className='my-40'> <h3>This Page </h3></div> }
                                                                   
             </div>
             </div>

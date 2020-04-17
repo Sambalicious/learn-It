@@ -18,10 +18,10 @@ function App() {
 
   const InitialState = {
     authDetails: [],
-    courses : {},
+    courses : [],
     isLoggedIn : false
   }
-  const isLoggedIn = false
+  
   const reducer = (state, action)=>{
     switch (action.type) {
       case 'LOG_IN': return{
@@ -30,7 +30,7 @@ function App() {
         
       }
         case 'ADD_CONTENT': return {
-          ...state, courses: action.payload
+           courses: [...state.courses, action.payload]
         }      
     
       default: return state
@@ -61,7 +61,7 @@ const [state, dispatch] = useReducer(reducer, InitialState)
      <Router>
          <Navbar />
        <Switch>   
-       <Suspense fallback={<div className='spinner'> <h3>Loading...</h3></div>}>
+       <Suspense fallback={<div className='my-40 spinner'> <h3 className='mt-0'>Loading...</h3></div>}>
          <Route path='/denied' exact component={CannotAccessPage} />        
          <Route path='/' exact component={LandingPage} />
          <Route path='/instructor' exact  render={()=> state.isLoggedIn ?  (<InstructorsDashBoard />) :  (<CannotAccessPage/>)}/>

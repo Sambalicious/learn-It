@@ -1,13 +1,25 @@
-import React, { Fragment } from 'react'
+import React, { Fragment,useContext } from 'react'
 import StarRating from '../StarRating';
 import Button from '../DashBoardComponent/Button';
 import { toast} from  'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import { GlobalContext } from '../../App';
 
 toast.configure()
-const OfferComponent = ({pics, title, description, author}) => {
+const OfferComponent = ({pics, title, description, author, id}) => {
+
+    const {handleAddContent } = useContext(GlobalContext)
     const addCourseToFav = () =>{
-        toast.success('Course has been added!')
+        toast.success('Course has been added!');
+        handleAddContent({
+            pics,
+            title,
+            description,
+            author,
+            id
+        })
+    console.log('course added')
+        
     }
 
     return ( 
@@ -16,7 +28,7 @@ const OfferComponent = ({pics, title, description, author}) => {
             <div className="justify-center mx-2 mb-4 sm:container md:shadow-xl sm:shadow-md md:flex">
 
                     <div className="max-w-sm rounded overflow-hidden shadow-lg  transition duration-500 ease-in-out  transform hover:-translate-y-1 hover:scale-105">
-                        <img className="w-full" src={pics} alt="Sunset in the mountains"/>
+                        <img className="w-full" key={id} src={pics} alt="Sunset in the mountains"/>
                     <div className="px-6 py-4">
                         
                     <div className="font-bold text-xl mb-2">{title}
