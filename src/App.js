@@ -1,5 +1,5 @@
 import React, { useReducer, lazy,Suspense } from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
 
 import Navbar from './Navbar/Navbar';
 import FooterPage from './components/Footer/FooterPage';
@@ -15,14 +15,19 @@ const StudentDashBoard = lazy(()=>import('./components/DashBoardComponent/Studen
 export const GlobalContext = React.createContext();
 
 function App() {
+
   const InitialState = {
     authDetails: [],
-    courses : {}
+    courses : {},
+    isLoggedIn : false
   }
+  const isLoggedIn = false
   const reducer = (state, action)=>{
     switch (action.type) {
       case 'LOG_IN': return{
-        ...state, authDetails: action.payload
+        ...state, authDetails: action.payload,
+        isLoggedIn: true
+        
       }
         case 'ADD_CONTENT': return {
           ...state, courses: action.payload
@@ -36,7 +41,8 @@ function App() {
       navigator.vibrate(200);
       dispatch({
         type: 'LOG_IN',
-        payload: response
+        payload: response,
+        
       })
   }
   const handleAddContent= (details) => {
@@ -56,12 +62,12 @@ const [state, dispatch] = useReducer(reducer, InitialState)
          <Navbar />
        <Switch>   
        <Suspense fallback={<div className='spinner'> <h3>Loading...</h3></div>}>
+         <Route path='/denied' exact component={CannotAccessPage} />        
          <Route path='/' exact component={LandingPage} />
-         <Route path='/instructor'  exact component={InstructorsDashBoard} />
-         <Route path='/student' exact component={StudentDashBoard} />
+         <Route path='/instructor' exact  render={()=> state.isLoggedIn ?  (<InstructorsDashBoard />) :  (<CannotAccessPage/>)}/>
+         <Route path='/student' exact  render={()=> state.isLoggedIn ?  (<StudentDashBoard />) :  (<CannotAccessPage/>)}/>
          <Route path='/courses' exact component={Courses} />
-         <Route path='/access-denied' exact render={()=> !state.authDetails && <CannotAccessPage />
-            }/>
+        
         </Suspense>
        </Switch>
        <FooterPage />

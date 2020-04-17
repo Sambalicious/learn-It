@@ -10,7 +10,7 @@ const StarRating = () => {
         <div className="flex items-center justify-center mb-4">
             {[...Array(5)].map((star, i)=>{
                 const ratingValue = i + 1
-                return (<label >
+                return (<label key={ratingValue} >
                     <input 
                     className="hidden"
                     type="radio" 

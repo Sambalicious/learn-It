@@ -10,9 +10,9 @@ const InstructorsDashBoard = () => {
     const {state} = useContext(GlobalContext)
     return ( 
         <div>
-            {
-                state.authDetails === '' ? <CannotAccessPage /> : <DashBoard />
-            }
+        
+             <DashBoard /> 
+        
         </div>
      );
 }

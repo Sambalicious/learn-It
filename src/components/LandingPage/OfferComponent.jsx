@@ -15,21 +15,21 @@ const OfferComponent = ({pics, title, description, author}) => {
 
             <div className="justify-center mx-2 mb-4 sm:container md:shadow-xl sm:shadow-md md:flex">
 
-                    <div class="max-w-sm rounded overflow-hidden shadow-lg  transition duration-500 ease-in-out  transform hover:-translate-y-1 hover:scale-105">
-                        <img class="w-full" src={pics} alt="Sunset in the mountains"/>
-                    <div class="px-6 py-4">
+                    <div className="max-w-sm rounded overflow-hidden shadow-lg  transition duration-500 ease-in-out  transform hover:-translate-y-1 hover:scale-105">
+                        <img className="w-full" src={pics} alt="Sunset in the mountains"/>
+                    <div className="px-6 py-4">
                         
-                    <div class="font-bold text-xl mb-2">{title}
+                    <div className="font-bold text-xl mb-2">{title}
                    <div>
                        <p className="inline-block px-3 py-1 text-sm font-semibold text-gray-700 rounded-full">Author: {author} </p>
                    </div>
                     </div>
-                        <p class="text-gray-700 text-base">
+                        <p className="text-gray-700 text-base">
                             {description}
                         </p>
                     
                     </div>
-                    <div class="px-6 py-4">
+                    <div className="px-6 py-4">
                     <Button label={'Add to Favourite'} onSubmit={addCourseToFav} />
                     <StarRating />  
                     </div>
