@@ -16,7 +16,7 @@ export const GlobalContext = React.createContext();
 
 function App() {
   const InitialState = {
-    authDetails: '',
+    authDetails: [],
     courses : {}
   }
   const reducer = (state, action)=>{

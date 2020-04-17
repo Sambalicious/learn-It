@@ -9,7 +9,7 @@ const Offers = () => {
     const [contents, setContents ] = useState([]);
 
     useEffect(()=>{
-        axios.get('http://localhost:3004/courses')
+        axios.get('https://app-server20.herokuapp.com/courses')
         .then(response=>{
             setLoading(false);
             setContents(response.data);

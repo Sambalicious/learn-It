@@ -55,6 +55,10 @@ const Form = () => {
                        
                       })                         
         },[image]);
+
+        const upload = response =>{
+          console.log(response)
+        }
          
 
        
