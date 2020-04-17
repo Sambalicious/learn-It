@@ -14,7 +14,6 @@ const Offers = () => {
             setLoading(false);
             setContents(response.data);
             setError('');  
-            
         }).catch(error=>{
 
             setLoading(false);
