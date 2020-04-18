@@ -10955,6 +10955,15 @@ div .spinner h3{
   }
 }
 
+.style{
+  background: url('../utils/img/error2.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;

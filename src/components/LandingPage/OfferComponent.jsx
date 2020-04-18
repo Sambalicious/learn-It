@@ -36,7 +36,7 @@ const OfferComponent = ({coverImage, title, description, author, id, video}) => 
             <div className="justify-center mx-2 mb-4 sm:container md:shadow-xl sm:shadow-md md:flex">
 
                     <div className="max-w-sm rounded overflow-hidden shadow-lg  transition duration-500 ease-in-out  transform hover:-translate-y-1 hover:scale-105">
-                        <img className="w-full" key={id} src={coverImage} alt="Sunset in the mountains"/>
+                        <img className="w-full" key={id} src={coverImage} alt="course_image"/>
                     <div className="px-6 py-4">
                         
                     <div className="font-bold text-xl mb-2">{title}

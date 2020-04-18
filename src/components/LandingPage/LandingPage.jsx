@@ -1,12 +1,13 @@
 import React from 'react';
 import CarouselPage from './CarouselPage';
-import Offers from './Offers';
+import LearnWithUs from './LearnWithUs';
+import peter from '../../utils/img/peter.jpeg'
 
 const LandingPage = () => {
     return ( 
         <div>
             <CarouselPage />
-            <Offers label={"Available Courses"}/>
+            <LearnWithUs  pics={peter} />
         </div>
      );
 }

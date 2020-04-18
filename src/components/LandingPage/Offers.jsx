@@ -28,10 +28,10 @@ const Offers = ({label}) => {
     
     return ( 
 
-            <div className="mb-4 text-center bg-purple-100 ">
+            <div className="mb-4 text-center">
                 <div className="py-6 text-xl font-bold text-center text-black ">{label} </div>
                 
-                    {loading ? <div className='my-48 overflow-hidden h-48 spinner'></div> : null}
+                    {loading ? <div className='h-48 my-48 overflow-hidden spinner'></div> : null}
                     {error ? <NetworkError />: null}
                     <div className="bg-purple-100 md:grid md:grid-cols-3 md:grid-rows-2 md:gap-4">
                     
