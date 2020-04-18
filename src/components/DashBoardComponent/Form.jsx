@@ -1,4 +1,5 @@
 import React, { useState,useEffect } from 'react';
+import {useHistory} from 'react-router'
 import axios from 'axios';
 import { toast} from  'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
@@ -14,6 +15,7 @@ const Form = () => {
         const [video, setVideo] = useState('');
         const [image,setImage] =useState('');
         const [author, setAuthor] = useState('');
+        const history = useHistory()
         
     
         const handleTitle = (e) => {
@@ -84,7 +86,8 @@ const Form = () => {
                } })
                .then(response=>console.log(response))
                .catch(error => console.log(error))
-          
+               
+               history.push('/courses')
             
         }        
   

@@ -3,12 +3,13 @@ import palms from '../../utils/img/palms.png'
 import OfferComponent from './OfferComponent'
 import axios from 'axios';
 import NetworkError from '../OtherPages/NetworkError';
-import {useHistory} from 'react-router-dom';
+
+
 const Offers = ({label}) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const [contents, setContents ] = useState([]);
-    const history = useHistory();
+
 
     useEffect(()=>{
         axios.get('https://app-server20.herokuapp.com/courses')
@@ -38,10 +39,11 @@ const Offers = ({label}) => {
                     {Array.isArray(contents) && contents ? contents.map((content) =>
                     <OfferComponent 
                             title={content.title}
-                            coverImage={content.coverImage}
+                            coverImage={content.image}
                             author={content.author} 
                             description={content.description} 
-                            id={content.id} 
+                            video={content.VideoUrl}
+                            key={content.id} 
                     />)
                    : error }
                                                                   
