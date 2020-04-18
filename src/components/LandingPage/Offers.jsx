@@ -3,7 +3,7 @@ import palms from '../../utils/img/palms.png'
 import OfferComponent from './OfferComponent'
 import axios from 'axios';
 
-const Offers = () => {
+const Offers = ({label}) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const [contents, setContents ] = useState([]);
@@ -27,20 +27,21 @@ const Offers = () => {
     return ( 
 
             <div className="mb-4 text-center bg-purple-100 ">
-                <div className="py-6 text-xl font-bold text-center text-black ">Available Courses</div>
+                <div className="py-6 text-xl font-bold text-center text-black ">{label} </div>
                 
-                    {loading ? <div className='my-40 spinner'> <h3 className='mt-0'>Loading...</h3></div> : null}
-                    <div className=" md:grid md:grid-cols-3 md:grid-rows-2 md:gap-4">
+                    {loading ? <div className='my-48 overflow-hidden h-48 spinner'></div> : null}
+                    {error ? "Network Error, check your connection": null}
+                    <div className="bg-purple-100 md:grid md:grid-cols-3 md:grid-rows-2 md:gap-4">
                     
                     {Array.isArray(contents) && contents ? contents.map((content) =>
                     <OfferComponent 
                             title={content.title}
-                            pics={palms}
+                            coverImage={content.coverImage}
                             author={content.author} 
                             description={content.description} 
-                            key={content.id} 
+                            id={content.id} 
                     />)
-                   : <div className='my-40'> <h3>This Page </h3></div> }
+                   : error }
                                                                   
             </div>
             </div>

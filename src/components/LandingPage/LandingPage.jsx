@@ -6,7 +6,7 @@ const LandingPage = () => {
     return ( 
         <div>
             <CarouselPage />
-            <Offers />
+            <Offers label={"Available Courses"}/>
         </div>
      );
 }

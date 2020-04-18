@@ -56,32 +56,37 @@ const Form = () => {
                       })                         
         },[image]);
 
-        const upload = response =>{
-          console.log(response)
-        }
+        
          
 
        
           
         const handleSubmit = (e) =>{
             e.preventDefault();
-            
-            
-             const courseData = new FormData();
 
-             courseData.append("title", title);
-             courseData.append("description", description);
-             courseData.append("author", author);
-             courseData.append("image", imageUrl);
-             courseData.append("video", video);
+             const courseData = {
+              "title": title,
+              "description":description,
+              "author": author,
+              "image": imageUrl,
+              "video": video
+
+             }
+
+             
 
              toast.success('You have succesfully created a content');
+
+               axios.post('https://app-server20.herokuapp.com/courses',courseData,  {
+                 
+                 headers: {
+                 "Content-type": "application/json; charset=UTF-8"
+               } })
+               .then(response=>console.log(response))
+               .catch(error => console.log(error))
+          
             
-        }
-
-
-
-        
+        }        
   
     return ( 
         <div className="justify-center md:flex sm:items-center">

@@ -4,7 +4,7 @@ import Offers from '../LandingPage/Offers';
 const Courses = () => {
     return ( 
         <div>
-            <Offers />
+            <Offers label={"Available Courses"} />
         </div>
      );
 }

@@ -61,7 +61,7 @@ const [state, dispatch] = useReducer(reducer, InitialState)
      <Router>
          <Navbar />
        <Switch>   
-       <Suspense fallback={<div className='my-40 spinner'> <h3 className='mt-0'>Loading...</h3></div>}>
+       <Suspense fallback={<div className='my-48 h-48 spinner'></div>}>
          <Route path='/denied' exact component={CannotAccessPage} />        
          <Route path='/' exact component={LandingPage} />
          <Route path='/instructor' exact  render={()=> state.isLoggedIn ?  (<InstructorsDashBoard />) :  (<CannotAccessPage/>)}/>
