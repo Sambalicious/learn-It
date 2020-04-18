@@ -2,11 +2,13 @@ import React, { useState,useEffect} from 'react'
 import palms from '../../utils/img/palms.png'
 import OfferComponent from './OfferComponent'
 import axios from 'axios';
-
+import NetworkError from '../OtherPages/NetworkError';
+import {useHistory} from 'react-router-dom';
 const Offers = ({label}) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const [contents, setContents ] = useState([]);
+    const history = useHistory();
 
     useEffect(()=>{
         axios.get('https://app-server20.herokuapp.com/courses')
@@ -30,7 +32,7 @@ const Offers = ({label}) => {
                 <div className="py-6 text-xl font-bold text-center text-black ">{label} </div>
                 
                     {loading ? <div className='my-48 overflow-hidden h-48 spinner'></div> : null}
-                    {error ? "Network Error, check your connection": null}
+                    {error ? <NetworkError />: null}
                     <div className="bg-purple-100 md:grid md:grid-cols-3 md:grid-rows-2 md:gap-4">
                     
                     {Array.isArray(contents) && contents ? contents.map((content) =>

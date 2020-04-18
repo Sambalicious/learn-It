@@ -52,3 +52,12 @@ div .spinner h3{
         transform: rotate(360deg);
     }
 }
+
+.style{
+    background: url('../utils/img/error2.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+}

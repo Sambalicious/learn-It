@@ -3,6 +3,8 @@ import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom
 
 import Navbar from './Navbar/Navbar';
 import FooterPage from './components/Footer/FooterPage';
+import NotFound from './components/OtherPages/NotFound';
+import NetworkError from './components/OtherPages/NetworkError';
 const Courses = lazy(()=>import ('./components/CoursesComponent/Courses'));
 const InstructorsDashBoard  = lazy(()=>import ('./components/DashBoardComponent/InstructorsDashBoard'));
 const CannotAccessPage = lazy(()=>import ('./components/DashBoardComponent/CannotAccessPage'));
@@ -61,14 +63,15 @@ const [state, dispatch] = useReducer(reducer, InitialState)
      <Router>
          <Navbar />
        <Switch>   
-       <Suspense fallback={<div className='my-48 h-48 spinner'></div>}>
-         <Route path='/denied' exact component={CannotAccessPage} />        
+       <Suspense fallback={<div className='my-48 h-40 spinner'></div>}>
+         <Route path='/denied' exact component={CannotAccessPage} />  
          <Route path='/' exact component={LandingPage} />
          <Route path='/instructor' exact  render={()=> state.isLoggedIn ?  (<InstructorsDashBoard />) :  (<CannotAccessPage/>)}/>
          <Route path='/student' exact  render={()=> state.isLoggedIn ?  (<StudentDashBoard />) :  (<CannotAccessPage/>)}/>
          <Route path='/courses' exact component={Courses} />
         
         </Suspense>
+        <Route path='*' exact component={NotFound} /> 
        </Switch>
        <FooterPage />
      </Router>
