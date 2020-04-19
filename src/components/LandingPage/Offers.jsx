@@ -30,11 +30,11 @@ const Offers = ({label}) => {
     return ( 
 
             <div className="mb-4 text-center">
-                <div className="py-6 text-xl font-bold text-center text-black ">{label} </div>
+                <div className="py-6 text-xl font-bold text-center text-black bg-pink-100 ">{label} </div>
                 
                     {loading ? <div className='h-48 my-48 overflow-hidden spinner'></div> : null}
                     {error ? <NetworkError />: null}
-                    <div className="bg-purple-100 md:grid md:grid-cols-3 md:grid-rows-2 md:gap-4">
+                    <div className="bg-purple-100 md:grid md:grid-cols-3 md:gap-4">
                     
                     {Array.isArray(contents) && contents ? contents.map((content) =>
                     <OfferComponent 

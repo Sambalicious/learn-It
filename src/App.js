@@ -68,7 +68,7 @@ const [state, dispatch] = useReducer(reducer, InitialState)
          <Route path='/instructor' exact  render={()=> state.isLoggedIn ?  (<InstructorsDashBoard />) :  (<CannotAccessPage/>)}/>
          <Route path='/student' exact  render={()=> state.isLoggedIn ?  (<StudentDashBoard />) :  (<CannotAccessPage/>)}/>
          <Route path="/not-found" component={NotFound} />
-         <Redirect to="/" />
+         
         </Suspense>
         </Switch>
        <FooterPage />

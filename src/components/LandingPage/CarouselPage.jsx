@@ -14,7 +14,7 @@ import palms4 from '../../utils/img/palms4.jpg';
 const CarouselPage = () => {
     return ( 
         <div>
-            <Carousel showArrows={true} autoPlay={true} showStatus={false} infiniteLoop={true} showThumbs={false} dynamicHeight={true}>
+            <Carousel showArrows={true} autoPlay={true}  showStatus={false} infiniteLoop={true} showThumbs={false} dynamicHeight={true}>
                 <div>
                     <img src={bg1} alt="slide_photos" />
                     <div className="text-center text-white bg-indigo-600 md:-mt-64 sm:-mt-16">
