@@ -1,12 +1,12 @@
 import React from 'react';
 
-const CourseCard = ({label}) => {
+const CourseCard = ({label,icon}) => {
     return ( 
         <div>
-             <div class="max-w-sm rounded h-56 overflow-hidden shadow-xl hover:bg-blue-600 hover:text-white">
-                <div className="my-4 text-center ">icon </div>
-            <div class="px-6 py-4">
-                <div class="font-bold text-bold mb-2 text-center">{label} </div>
+             <div className="px-2 overflow-hidden bg-white rounded shadow-xl sm:mb-4 sm:shadow-md hover:bg-blue-600 hover:text-white">
+                <div className="flex justify-center mt-4 ">{icon} </div>
+            <div className="px-6 py-4">
+                <div className="mb-2 font-bold text-center text-bold">{label} </div>
                 
             </div>
             </div>

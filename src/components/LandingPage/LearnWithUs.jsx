@@ -9,9 +9,9 @@ import { Link } from 'react-router-dom';
 const LearnWithUs = ({ pics}) => {
     return ( 
         <div>
-           <div className="container justify-between justify-around px-4 xl:flex md:m-20">
+           <div className="container justify-between justify-around px-4 mb-4 lg:m-3 md:flex ">
                 <div className="xl:mr-10 xl:flex-shrink-0">
-                    <img  className="transition duration-500 ease-in-out transform md:w-full sm:object-cover hover:-translate-y-1 hover:scale-110" src={pics} alt="Learn_With_Us"/>
+                    <img  className="object-cover transition duration-500 ease-in-out transform md:w-full hover:-translate-y-1 hover:scale-110" src={pics} alt="Learn_With_Us"/>
                    
             </div>
             <div className="mt-4 align-middle md:mt-0 md:ml-6">
