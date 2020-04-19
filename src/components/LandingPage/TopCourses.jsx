@@ -11,8 +11,8 @@ import {MdHeadsetMic, MdGroup} from 'react-icons/md';
 
 const TopCourses = () => {
     return ( 
-        <div className="px-5 mx-4 my-6 bg-gray-200 md:py-5">
-            <h2 className="my-10 ml-8 text-3xl font-extrabold text-red-900 md:py-3">Top Courses</h2>
+        <div className="px-5 pb-5 mx-4 my-6 bg-gray-200 md:pt-4">
+            <h2 className="py-3 my-10 ml-8 text-3xl font-extrabold text-red-900">Top Courses</h2>
             <Link to="/courses">
                 
             <div className="grid-cols-4 gap-5 lg:grid">

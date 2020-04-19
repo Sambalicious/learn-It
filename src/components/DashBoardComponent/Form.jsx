@@ -87,7 +87,8 @@ const Form = () => {
                .then(response=>console.log(response))
                .catch(error => console.log(error))
                
-               history.push('/courses')
+               
+               history.push('/')
             
         }        
   

@@ -11,6 +11,7 @@ const LandingPage = () => {
             <CarouselPage />
             <TopCourses />
             <LearnWithUs  pics={peter} />
+            
             <TeachWithUs />
         </div>
      );
