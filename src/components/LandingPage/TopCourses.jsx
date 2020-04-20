@@ -15,7 +15,7 @@ const TopCourses = () => {
             <h2 className="py-3 my-10 ml-8 text-3xl font-extrabold text-red-900">Top Courses</h2>
             <Link to="/courses">
                 
-            <div className="grid-cols-4 gap-5 lg:grid">
+            <div className="grid-cols-4 gap-5 md:grid">
             <IconContext.Provider value={{size:"4rem", color:'orange'}}>
             <CourseCard label={'Web Development'} icon={<FaGlobe  />} />
             
