@@ -79,7 +79,7 @@ const Form = () => {
 
              toast.success('You have succesfully created a content');
 
-               axios.post('https://app-server20.herokuapp.com/courses',courseData,  {
+               axios.post('https://app-server20.herokuapp.com/courses',JSON.stringify(courseData),  {
                  
                  headers: {
                  "Content-type": "application/json; charset=UTF-8"

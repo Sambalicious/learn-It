@@ -10924,7 +10924,9 @@ input[type="radio"]{
 .spinner:before{
   content: '';
   box-sizing: border-box;
-  position: absolute;
+  display:flex;
+  justify-content: center;
+  text-align: center;
   top:50%;
   left: 50%;
   height: 80px;
@@ -10938,9 +10940,12 @@ input[type="radio"]{
   animation: spinner 0.7s ease infinite;
 }
 
-.div .spinner{
+div .spinner{
   top: 50%;
-  left:50%
+  left:50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 div .spinner h3{

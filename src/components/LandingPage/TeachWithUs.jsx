@@ -7,13 +7,15 @@ const TeachWithUs = () => {
     return ( 
     
        <div>
-            <div className="container px-4  my-5 transition duration-500 ease-in-out transform shadow sm:shadow-md xl:shadow-2xl hover:-translate-y-1 hover:scale-103">
+            <div className="container px-2  my-5 transition duration-500 ease-in-out transform shadow sm:shadow-md xl:shadow-2xl hover:-translate-y-1 hover:scale-103">
             <div className="justify-between lg:flex md:m-6 lg:wrap sm:p-10">
       <div className="md:mt-4 md:mr-16 md:mt-0 md:ml-6">
          <div className="my-2 text-sm font-bold tracking-wide text-indigo-600 uppercase sm:pt-4 sm:mt-2">Teach on Learn-It</div>
          <p className="mt-2 mb-10 text-gray-600">Top instructors from around the world teach millions of students on Learn-It. We provide the tools and skills to teach what you love. 
         </p>
-            <Link to="/instructor"><Button label={'Start Teaching'}/></Link> 
+        <div className="text-center">
+            <Link to="/instructor"><Button  label={'Start Teaching'}/></Link> 
+            </div>
         
         </div>
             <div className="md:flex-shrink-0">

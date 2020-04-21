@@ -1,5 +1,5 @@
-import React, { useReducer, lazy,Suspense } from 'react';
-import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
+import React, { useReducer, useEffect, lazy,Suspense } from 'react';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 import Navbar from './Navbar/Navbar';
 import FooterPage from './components/Footer/FooterPage';
@@ -18,7 +18,7 @@ function App() {
 
   const InitialState = {
     authDetails: [],
-    courses : [],
+    courses:[],
     isLoggedIn : false
   }
   
@@ -29,10 +29,10 @@ function App() {
         isLoggedIn: true
         
       }
-        case 'ADD_CONTENT': return {
-           courses: [...state.courses, action.payload]
-        }      
-    
+
+      case 'ADD_CONTENT': return {
+        courses: [...state.courses, action.payload] 
+     }                 
       default: return state
       
     }
@@ -44,24 +44,30 @@ function App() {
         payload: response,
         
       })
+
+   
   }
+
+
   const handleAddContent= (details) => {
     navigator.vibrate(200);
     dispatch({
       type: 'ADD_CONTENT',
       payload: details
-      
     })
-}
-const [state, dispatch] = useReducer(reducer, InitialState)
+
+};
+
+
+    const [state, dispatch] = useReducer(reducer, InitialState);
   
   return (
     <div >
-    <GlobalContext.Provider value={{state,dispatch, handleLogin, handleAddContent}}>
+    <GlobalContext.Provider value={{state,dispatch,handleAddContent, handleLogin}}>
      <Router>
          <Navbar />
        <Switch>   
-       <Suspense fallback={<div className='h-40 my-48 spinner'></div>}>
+       <Suspense fallback={<div className='my-40 flex justify-center spinner'></div>}>
        <Route path='/' exact component={LandingPage} />
          <Route path='/denied' exact component={CannotAccessPage} />  
          <Route path='/courses' exact component={Courses} />

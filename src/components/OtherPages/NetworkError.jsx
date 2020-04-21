@@ -6,7 +6,7 @@ const NetworkError = () => {
     return ( 
         <div>   
                <div className="bg-white -my-4 w-screen md:flex justify-center">
-                   <img className src={network} alt="access_denied" />
+                   <img src={network} alt="access_denied" />
                </div>
         </div>
      );

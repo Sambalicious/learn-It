@@ -1,5 +1,4 @@
-import React, { useContext } from 'react'
-import { GlobalContext } from '../../App';
+import React from 'react';
 import DashBoard from './DashBoard';
 
 
@@ -7,7 +6,7 @@ import DashBoard from './DashBoard';
 
 
 const InstructorsDashBoard = () => {
-    const {state} = useContext(GlobalContext)
+    
     return ( 
         <div>
         

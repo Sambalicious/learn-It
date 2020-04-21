@@ -2,69 +2,28 @@ import React, { Fragment,useContext } from 'react'
 import StarRating from '../StarRating';
 import Button from '../DashBoardComponent/Button';
 import { toast} from  'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'
+import 'react-toastify/dist/ReactToastify.css';
 import { GlobalContext } from '../../App';
 
 toast.configure()
 const OfferComponent = ({coverImage, title, description, author, id, video}) => {
 
-    const {handleAddContent } = useContext(GlobalContext)
-    const addCourseToFav = () =>{
-        toast.success('Course has been added to Favourite !');
-
-      
-        
-        const localState = {
-          coverImage,
-           title,
-          description,
-           author,
-           id, 
-           video
-        }
-
-
-        var addToLocalStorageArray = function (courseData, value) {
-
-            // Get the existing data
-            var localState = localStorage.getItem(courseData);
-        
-            // If no localState data, create an array
-            // Otherwise, convert the localStorage string to an array
-            localState = localState ? localState.split(',') : [];
-        
-            // Add new data to localStorage Array
-            localState.push(value);
-        
-            // Save back to localStorage
-            localStorage.setItem(courseData, localState.toString());
-        
-        console.log(addToLocalStorageArray);
-{/** 
-            // Get the existing data
-var existing = localStorage.getItem('courseData');
-
-// If no existing data, create an array
-// Otherwise, convert the localStorage string to an array
-existing = existing ? JSON.parse(existing) : {};
-
-// Add new data to localStorage Array
-existing['drink'] = 'soda';
-
-// Save back to localStorage
-localStorage.setItem('courseData', JSON.stringify(existing));
-
-
-        var obj = JSON.parse( localStorage.getItem('obj') ) || [] ;
-        
-        localStorage.setItem('CourseData', JSON.stringify(localState));
-        obj.push(localState)
-        console.log(obj)
-       */} 
-    }
-}
     
+     const {handleAddContent} = useContext(GlobalContext)
+            const data = {
+                coverImage,
+                 title,
+                description,
+                 author,
+                 id, 
+                 video
+              }
+          
+        const addCourseToFav = () =>{
+                toast.success('Course has been added to Favourite !')        
+                handleAddContent(data)
 
+    }
     return ( 
         <Fragment>
 
@@ -94,6 +53,6 @@ localStorage.setItem('courseData', JSON.stringify(existing));
         </div>
         </Fragment>
      );
-}
+    };
  
 export default OfferComponent;
