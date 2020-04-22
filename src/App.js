@@ -1,24 +1,28 @@
-import React, { useReducer, useEffect, lazy,Suspense } from 'react';
+import React, { useReducer, useEffect, lazy,Suspense, useState, useLayoutEffect } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 import Navbar from './Navbar/Navbar';
 import FooterPage from './components/Footer/FooterPage';
 const NotFound = lazy(()=> import('./components/OtherPages/NotFound'));
 const Courses = lazy(()=>import ('./components/CoursesComponent/Courses'));
-const InstructorsDashBoard  = lazy(()=>import ('./components/DashBoardComponent/InstructorsDashBoard'));
+const InstructorsDashBoard  = lazy(()=>import ('./components/DashBoardComponent/Instructors/InstructorsDashBoard'));
 const CannotAccessPage = lazy(()=>import ('./components/DashBoardComponent/CannotAccessPage'));
 const LandingPage = lazy(()=>import('./components/LandingPage/LandingPage'));
-const StudentDashBoard = lazy(()=>import('./components/DashBoardComponent/StudentsDashBoard'));
+const StudentDashBoard = lazy(()=>import('./components/DashBoardComponent/studentDashBoard/StudentsDashBoard'));
 
 
 
 export const GlobalContext = React.createContext();
 
-function App() {
 
+function App() {
+        
+   const initialCourseState ={
+     courses: []
+   }
   const InitialState = {
     authDetails: [],
-    courses:[],
+    
     isLoggedIn : false
   }
   
@@ -30,13 +34,21 @@ function App() {
         
       }
 
-      case 'ADD_CONTENT': return {
-        courses: [...state.courses, action.payload] 
-     }                 
+                  
       default: return state
       
     }
   }
+
+  const courseReducer= (state, action)=>{
+    switch(action.type){
+      case 'ADD_CONTENT': return {
+        courses: [...state.courses, action.payload] 
+     }   
+     default:return state
+    }
+  }
+
   const handleLogin= (response) => {
       navigator.vibrate(200);
       dispatch({
@@ -44,14 +56,12 @@ function App() {
         payload: response,
         
       })
-
-   
   }
 
 
   const handleAddContent= (details) => {
     navigator.vibrate(200);
-    dispatch({
+    setCourse({
       type: 'ADD_CONTENT',
       payload: details
     })
@@ -59,7 +69,31 @@ function App() {
 };
 
 
-    const [state, dispatch] = useReducer(reducer, InitialState);
+ 
+    const [state, dispatch] = useReducer(reducer,InitialState)
+       const [course,setCourse] = useReducer(courseReducer, initialCourseState)
+  
+    var local = JSON.parse(localStorage.getItem('last')) || {};
+
+    local[course] = 'newValue'
+
+    localStorage.setItem('last',JSON.stringify(course))
+
+    /*
+    
+    useEffect(()=> {
+     const data = localStorage.getItem('Fav');
+      dispatch(JSON.parse(data))
+      console.log('first', data)
+
+    }, [])
+
+    useEffect(()=>{
+    localStorage.setItem('Fav', JSON.stringify(courses))
+      console.log('2nd render')
+    })
+*/
+    
   
   return (
     <div >

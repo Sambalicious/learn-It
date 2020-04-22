@@ -3,8 +3,8 @@ import {useHistory} from 'react-router'
 import axios from 'axios';
 import { toast} from  'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
-import InputField from './InputField';
-import Button from './Button';
+import InputField from '../InputField'
+import Button from '../../DashBoardComponent/Button'
 
 
 toast.configure()
@@ -42,6 +42,9 @@ const Form = () => {
         const [imageError, setImageError] = useState('');
 
 
+
+
+        
         
         useEffect(()=>{            
           axios.post("https://api.imgur.com/3/image",image, {
@@ -58,8 +61,37 @@ const Form = () => {
                       })                         
         },[image]);
 
+        useEffect(()=>{
+          axios.post("https://api.imgur.com/3/image",video, {
+                        headers:{
+                          Authorization: "Client-Id db563de1e18b82b"
+                        }
+                      }).then(response=> {
+                        
+                        console.log(response.data.data.link)})
+                      .catch(error => {
+                          console.log(error)
+                       
+                      })                         
+          
+        }, [video])
+
+
         
-         
+       /*
+          
+        const formData = new FormData();
+        formData.append("upload_preset", "sambalicious");
+        formData.append("image", image)
+
+       useEffect(()=>{
+          axios.post('https://api.cloudinary.com/v1_1/dev-sam/image/upload', formData)
+          .then(response =>console.log(response))
+          .catch(e=>console.log(e))
+       })
+
+        
+         */
 
        
           
@@ -88,7 +120,7 @@ const Form = () => {
                .catch(error => console.log(error))
                
                
-               history.push('/')
+               history.push('/courses')
             
         }        
   

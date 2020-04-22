@@ -1,5 +1,5 @@
 import React, { Fragment,useContext } from 'react'
-import StarRating from '../StarRating';
+import StarRating from '../OtherPages/StarRating'
 import Button from '../DashBoardComponent/Button';
 import { toast} from  'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,7 +9,10 @@ toast.configure()
 const OfferComponent = ({coverImage, title, description, author, id, video}) => {
 
     
-     const {handleAddContent} = useContext(GlobalContext)
+     const {state, handleAddContent} = useContext(GlobalContext)
+     const {courses} = state
+    
+
             const data = {
                 coverImage,
                  title,
@@ -18,11 +21,14 @@ const OfferComponent = ({coverImage, title, description, author, id, video}) => 
                  id, 
                  video
               }
+
+              
           
         const addCourseToFav = () =>{
                 toast.success('Course has been added to Favourite !')        
                 handleAddContent(data)
-
+             
+                
     }
     return ( 
         <Fragment>
@@ -45,7 +51,7 @@ const OfferComponent = ({coverImage, title, description, author, id, video}) => 
                     </div>
                     <div className="px-6 py-4">
                     <Button label={'Add to Favourite'} onSubmit={addCourseToFav} />
-                    <StarRating />  
+                    <StarRating />
                     </div>
 
 

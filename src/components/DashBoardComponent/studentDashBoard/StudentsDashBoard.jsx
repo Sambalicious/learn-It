@@ -1,10 +1,10 @@
 import React from 'react'
-import StudentComponent from './StudentComponent';
+import StudentComponent from './StudentComponent'
 
 const StudentDashBoard = () => {
     return ( 
         <div>
-           <StudentComponent /> 
+           <StudentComponent />
         </div>
      );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import AvatarComp from './AvatarComp'
+import AvatarComp from '../AvatarComp'
 
 import Form from './Form';
 
