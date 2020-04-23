@@ -6,9 +6,7 @@ const InstructorsDashBoard = () => {
     
     return ( 
         <div>
-        
              <DashBoard/>
-        
         </div>
      );
 }

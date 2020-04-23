@@ -52,7 +52,7 @@ const OfferComponent = ({coverImage, title, description, author, id, video}) => 
                     </div>
                     <div className="px-6 py-4">
                     <Button label={'Add to Favourite'} onSubmit={addCourseToFav} />
-                    <StarRating />
+                    
                     </div>
 
 

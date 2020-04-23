@@ -1,5 +1,4 @@
 import React, {  useEffect,useContext, useState } from  'react';
-import OfferComponent from '../../LandingPage/OfferComponent';
 import { GlobalContext } from '../../../App';
 import FavouriteCourses from './FavouriteCourses'
 
@@ -10,13 +9,13 @@ const MapFavourites = () => {
           const {courses} = course
 console.log(courses)
           const [loading, setLoading] = useState(true);
-        
+
+
+        // get the previous state from localStorage
     useEffect(()=>{
             setCourse(JSON.parse(localStorage.getItem('favouriteCourses')) || [])
             setLoading(false)
-            
-
-    },[])
+    },[setCourse])
       
     return ( 
         
