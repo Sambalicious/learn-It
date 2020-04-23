@@ -9,8 +9,9 @@ toast.configure()
 const OfferComponent = ({coverImage, title, description, author, id, video}) => {
 
     
-     const {state, handleAddContent} = useContext(GlobalContext)
-     const {courses} = state
+    const {handleAddContent} = useContext(GlobalContext)
+
+
     
 
             const data = {
@@ -25,7 +26,7 @@ const OfferComponent = ({coverImage, title, description, author, id, video}) => 
               
           
         const addCourseToFav = () =>{
-                toast.success('Course has been added to Favourite !')        
+                toast.success('Course has been added to your dashboard !')        
                 handleAddContent(data)
              
                 

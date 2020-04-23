@@ -31,7 +31,7 @@ const Offers = ({label}) => {
             <div className="mb-4 text-center">
                 <div className="py-6 text-xl font-bold text-center text-black bg-pink-100 ">{label} </div>
                 
-                    {loading ? <div className='my-40 flex justify-center spinner'></div> : null}
+                    {loading ? <div className='flex justify-center my-40 spinner'></div> : null}
                     {error ? <NetworkError />: null}
                     <div className="bg-purple-100 md:grid md:grid-cols-3 md:gap-4">
                     
@@ -43,6 +43,7 @@ const Offers = ({label}) => {
                             description={content.description} 
                             video={content.VideoUrl}
                             key={content.id} 
+                            id={content.id} 
                     />)
                    : error }
                                                                   

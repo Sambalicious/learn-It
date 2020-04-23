@@ -72,22 +72,27 @@ function App() {
  
     const [state, dispatch] = useReducer(reducer,InitialState)
        const [course,setCourse] = useReducer(courseReducer, initialCourseState)
-  
-    var local = JSON.parse(localStorage.getItem('last')) || {};
+       
+  useEffect(()=>{
+    let local = JSON.parse(localStorage.getItem('favouriteCourses')) || {};
+    
+    console.log(local, 'ist render')
 
-    local[course] = 'newValue'
+  }, [])
+    useEffect(()=>{
+      localStorage.setItem('favouriteCourses',JSON.stringify(course))
+      console.log('2nd render')
+    })
 
-    localStorage.setItem('last',JSON.stringify(course))
 
     /*
+    ******This also works ******
     
     useEffect(()=> {
      const data = localStorage.getItem('Fav');
       dispatch(JSON.parse(data))
       console.log('first', data)
-
     }, [])
-
     useEffect(()=>{
     localStorage.setItem('Fav', JSON.stringify(courses))
       console.log('2nd render')
@@ -97,19 +102,18 @@ function App() {
   
   return (
     <div >
-    <GlobalContext.Provider value={{state,dispatch,handleAddContent, handleLogin}}>
+    <GlobalContext.Provider value={{state,course, setCourse,  dispatch,handleAddContent, handleLogin}}>
      <Router>
          <Navbar />
        <Switch>   
        <Suspense fallback={<div className='my-40 flex justify-center spinner'></div>}>
-       <Route path='/' exact component={LandingPage} />
-         <Route path='/denied' exact component={CannotAccessPage} />  
-         <Route path='/courses' exact component={Courses} />
-         <Route path='/instructor' exact  render={()=> state.isLoggedIn ?  (<InstructorsDashBoard />) :  (<CannotAccessPage/>)}/>
-         <Route path='/student' exact  render={()=> state.isLoggedIn ?  (<StudentDashBoard />) :  (<CannotAccessPage/>)}/>
-         <Route path="/not-found" component={NotFound} />
-         
-        </Suspense>
+              <Route path='/' exact component={LandingPage} />
+              <Route path='/denied' exact component={CannotAccessPage} />  
+              <Route path='/courses' exact component={Courses} />
+              <Route path='/instructor' exact  render={()=> state.isLoggedIn ?  (<InstructorsDashBoard />) :  (<CannotAccessPage/>)}/>
+              <Route path='/student' exact  render={()=> state.isLoggedIn ?  (<StudentDashBoard />) :  (<CannotAccessPage/>)}/>
+              <Route path="/not-found" component={NotFound} />
+       </Suspense>
         </Switch>
        <FooterPage />
      </Router>

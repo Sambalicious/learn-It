@@ -1,15 +1,16 @@
 import React, {useState, useContext} from 'react';
 import GoogleLogin from 'react-google-login';
 import { GoogleLogout } from 'react-google-login';
-import { GlobalContext } from '../../App';
+import {GlobalContext} from '../../App';
 import {useHistory} from 'react-router';
 
 
  
 const Login = () => {
   // the handleLogin action from GlobalContext
-  const {handleLogin} = useContext(GlobalContext)
+  //const {handleLogin} = useContext(GlobalContext)
 
+    const { handleLogin }  = useContext(GlobalContext);
   //initialized and empty state
     const [state, SetState] = useState(null)
    
