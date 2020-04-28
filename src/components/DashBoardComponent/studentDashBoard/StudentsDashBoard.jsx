@@ -1,4 +1,5 @@
 import React, {useEffect,useContext} from 'react';
+import { Helmet} from 'react-helmet';
 import { StoreContext } from '../../../provider/store';
 import StudentComponent from './StudentComponent'
 
@@ -22,9 +23,12 @@ const StudentDashBoard = () => {
        })
    
     return ( 
-        <div>
+        <>
+            <Helmet>
+               <title>Learn-It | Student Dashboard</title>
+            </Helmet>
            <StudentComponent />
-        </div>
+        </>
      );
 }
  

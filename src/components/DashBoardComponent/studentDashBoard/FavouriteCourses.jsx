@@ -25,7 +25,7 @@ const FavouriteCourses = ({title, description, author, video}) => {
                     </div>
                     
                     <div className="px-6 py-4">
-                    <StarRating />
+                   Rate this course <StarRating />
                     </div>
 
 

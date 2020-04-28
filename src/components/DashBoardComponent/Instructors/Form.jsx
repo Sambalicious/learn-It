@@ -74,13 +74,16 @@ const Form = () => {
             })
             .catch(error=>{
               console.log(error)
-              setError('Something went wrong')
+              
             })
         },[video])
 
           ////function that is called on submit
         const handleSubmit = (e) =>{
             e.preventDefault();
+            if ([title, description,author, imageUrl, videoUrl].includes('')){
+              toast.error('All fields are required');
+            } else{
 
              const courseData = {
               "title": title,
@@ -100,8 +103,9 @@ const Form = () => {
                .catch(error => console.log(error))
                history.push('/')
             
-        }        
-  
+        } 
+      }        
+        
     return ( 
         <div className="justify-center md:flex sm:items-center">
             <form onSubmit={handleSubmit} 
