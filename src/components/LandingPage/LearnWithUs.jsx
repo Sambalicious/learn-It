@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const LearnWithUs = ({ pics}) => {
     return ( 
-        <div>
+        <>
            <div className="container justify-between justify-around px-2 md:px-4 mb-2 lg:m-3 lg:flex ">
                 <div className="xl:mr-10 md:flex-shrink-0">
                     <img  className="object-cover transition duration-500 ease-in-out transform md:w-full hover:-translate-y-1 hover:scale-110" src={pics} alt="Learn_With_Us"/>
@@ -33,7 +33,7 @@ const LearnWithUs = ({ pics}) => {
                
             </div>
            
-        </div>
+        </>
      );
 }
  

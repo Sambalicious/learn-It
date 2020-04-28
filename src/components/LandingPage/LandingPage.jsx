@@ -7,13 +7,12 @@ import TeachWithUs from './TeachWithUs';
 
 const LandingPage = () => {
     return ( 
-        <div>
+        <>
             <CarouselPage />
             <TopCourses />
             <LearnWithUs  pics={peter} />
-            
             <TeachWithUs />
-        </div>
+        </>
      );
 }
  

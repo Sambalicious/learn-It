@@ -16,6 +16,7 @@
     "add": "^2.0.6",
     "autoprefixer": "^9.7.5",
     "axios": "^0.19.2",
+    "cloudinary-react": "^1.5.0",
     "concurrently": "^5.1.0",
     "emotion-theming": "^10.0.27",
     "jquery": "^3.5.0",

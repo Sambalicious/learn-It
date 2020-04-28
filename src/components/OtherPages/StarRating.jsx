@@ -2,10 +2,10 @@ import React, {useState} from 'react';
 import {FaStar} from 'react-icons/fa'
 
 
-
 const StarRating = () => {
     const [rating,setRating] = useState(null);
     const [hover, setHover] = useState(null)
+   
     return ( 
         <div className="flex items-center justify-center mb-4">
             {[...Array(5)].map((star, i)=>{

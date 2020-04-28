@@ -5,9 +5,9 @@ import DashBoard from './DashBoard';
 const InstructorsDashBoard = () => {
     
     return ( 
-        <div>
+        <>
              <DashBoard/>
-        </div>
+        </>
      );
 }
  

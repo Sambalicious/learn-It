@@ -1,4 +1,4 @@
-import React, {createRef} from 'react';
+import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 
 import bg1 from '../../utils/img/bg1.jpg';
@@ -10,10 +10,10 @@ import bg6 from '../../utils/img/bg6.jpg';
 import bg7 from '../../utils/img/bg7.jpg';
 import palms4 from '../../utils/img/palms4.jpg';
 
- const wrapper = createRef()
+ 
 const CarouselPage = () => {
     return ( 
-        <div ref={wrapper}>
+        <>
             <Carousel  showArrows={true} autoPlay={true}  showStatus={false} infiniteLoop={true} showThumbs={false} dynamicHeight={true}>
                 <div>
                     <img src={bg1} alt="slide_photos" />
@@ -82,7 +82,7 @@ const CarouselPage = () => {
                     </div>
                 </div>
             </Carousel>
-        </div>
+        </>
      );
 }
  

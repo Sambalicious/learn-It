@@ -28,24 +28,22 @@ const Form = () => {
 
         const handleVideo = (e) =>{
           setVideo(e.target.files[0])
-          
         }
 
         const handleImage = (e) => {
           setImage(e.target.files[0])
         }
+
         const handleAuthor = (e) =>{
           setAuthor(e.target.value)
         }
 
         const [imageUrl, setImageUrl] = useState('');
-        const [imageError, setImageError] = useState('');
+        const [error, setError] = useState('');
+        const [videoUrl, setVideoUrl] = useState('')
 
 
-
-
-        
-        
+        //upload image to imgur
         useEffect(()=>{            
           axios.post("https://api.imgur.com/3/image",image, {
                         headers:{
@@ -55,44 +53,32 @@ const Form = () => {
                         setImageUrl(response.data.data.link);
                         console.log(response.data.data.link)})
                       .catch(error => {
-                        setImageError(error)
-                        console.log(imageError)
-                       
+                        console.log(error)
+                       setError('Something went wrong')
                       })                         
         },[image]);
+        
 
+        //upload video to cloudinary
         useEffect(()=>{
-          axios.post("https://api.imgur.com/3/image",video, {
-                        headers:{
-                          Authorization: "Client-Id db563de1e18b82b"
-                        }
-                      }).then(response=> {
-                        
-                        console.log(response.data.data.link)})
-                      .catch(error => {
-                          console.log(error)
-                       
-                      })                         
+          const uploadPreset = 'zbjwvsyj';
           
-        }, [video])
+          const url = 'https://api.cloudinary.com/v1_1/dev-sam/video/upload'; 
+          const fd = new FormData();
+            fd.append("file", video);
+            fd.append("upload_preset", uploadPreset);
 
+            axios.post(url,fd)
+            .then(response =>{
+            setVideoUrl(response.data.secure_url)  
+            })
+            .catch(error=>{
+              console.log(error)
+              setError('Something went wrong')
+            })
+        },[video])
 
-        
-       /*
-          
-        const formData = new FormData();
-        formData.append("upload_preset", "sambalicious");
-        formData.append("image", image)
-
-       useEffect(()=>{
-          axios.post('https://api.cloudinary.com/v1_1/dev-sam/image/upload', formData)
-          .then(response =>console.log(response))
-          .catch(e=>console.log(e))
-       })
-
-        
-         */
-          
+          ////function that is called on submit
         const handleSubmit = (e) =>{
             e.preventDefault();
 
@@ -101,19 +87,18 @@ const Form = () => {
               "description":description,
               "author": author,
               "image": imageUrl,
-              "video": video
-
+              "video": videoUrl
              }             
 
              toast.success('You have succesfully created a content');
 
-               axios.post('https://app-server20.herokuapp.com/courses',JSON.stringify(courseData),  {
+               axios.post('https://app-server20.herokuapp.com/courses',courseData,{
                  headers: {
                  "Content-type": "application/json; charset=UTF-8"
-               } })
+                    } })
                .then(response=>console.log(response))
                .catch(error => console.log(error))
-               history.push('/courses')
+               history.push('/')
             
         }        
   
