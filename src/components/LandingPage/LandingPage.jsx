@@ -1,15 +1,22 @@
 import React from 'react';
+import { Helmet} from 'react-helmet';
 import CarouselPage from './CarouselPage';
-import Offers from './Offers';
+import LearnWithUs from './LearnWithUs';
+import peter from '../../utils/img/peter.jpeg'
+import TopCourses from './TopCourses';
+import TeachWithUs from './TeachWithUs';
 
 const LandingPage = () => {
     return ( 
-        <div>
-            
+        <> 
+          <Helmet>
+            <title>Learn-It | Home</title>
+          </Helmet>
             <CarouselPage />
-            <Offers />
-            
-        </div>
+            <TopCourses />
+            <LearnWithUs  pics={peter} />
+            <TeachWithUs />
+        </>
      );
 }
  

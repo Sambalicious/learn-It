@@ -1,13 +1,13 @@
 import React from 'react';
-import AvatarComp from './AvatarComp';
-import Offers from '../LandingPage/Offers'
+import AvatarComp from '../AvatarComp';
+import MapFavourites from './MapFavourites';
 
 
-const StudentComponent = ({status}) => {
+const StudentComponent = () => {
     return ( 
         <div>
              <AvatarComp status={'Student'} />
-            <Offers />
+            <MapFavourites />
         </div>
      );
 }

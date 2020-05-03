@@ -1,72 +1,56 @@
-import React, { useReducer, lazy,Suspense } from 'react';
+import React, { lazy,Suspense, useContext , useEffect, useState} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-
 import Navbar from './Navbar/Navbar';
 import FooterPage from './components/Footer/FooterPage';
+import { StoreContext } from './provider/store';
+
+const NotFound = lazy(()=> import('./components/OtherPages/NotFound'));
 const Courses = lazy(()=>import ('./components/CoursesComponent/Courses'));
-const InstructorsDashBoard  = lazy(()=>import ('./components/DashBoardComponent/InstructorsDashBoard'));
+const InstructorsDashBoard  = lazy(()=>import ('./components/DashBoardComponent/Instructors/InstructorsDashBoard'));
+const StudentDashBoard  = lazy(()=>import ('./components/DashBoardComponent/studentDashBoard/StudentsDashBoard'));
 const CannotAccessPage = lazy(()=>import ('./components/DashBoardComponent/CannotAccessPage'));
 const LandingPage = lazy(()=>import('./components/LandingPage/LandingPage'));
-const StudentDashBoard = lazy(()=>import('./components/DashBoardComponent/StudentsDashBoard'));
 
 
-
-
-export const GlobalContext = React.createContext();
 
 function App() {
-  const InitialState = {
-    authDetails: '',
-    courses : {}
+
+  const {auth} = useContext(StoreContext)
+  const {isLoggedIn} = auth
+
+ /*
+
+useEffect(()=> {
+  const data = localStorage.getItem('Fav');
+  try{
+   // handleAddCourseToFav(JSON.parse(data))
+    console.log('first', data)
+  }catch(e){
+
   }
-  const reducer = (state, action)=>{
-    switch (action.type) {
-      case 'LOG_IN': return{
-        ...state, authDetails: action.payload
-      }
-        case 'ADD_CONTENT': return {
-          ...state, courses: action.payload
-        }      
-    
-      default: return state
-      
-    }
-  }
-  const handleLogin= (response) => {
-      navigator.vibrate(200);
-      dispatch({
-        type: 'LOG_IN',
-        payload: response
-      })
-  }
-  const handleAddContent= (details) => {
-    navigator.vibrate(200);
-    dispatch({
-      type: 'ADD_CONTENT',
-      payload: details
-      
-    })
-}
-const [state, dispatch] = useReducer(reducer, InitialState)
-  
+ }, [])
+ useEffect(()=>{
+ localStorage.setItem('Fav', JSON.stringify(courses.courses))
+   console.log('2nd render')
+ })
+ */
   return (
     <div >
-    <GlobalContext.Provider value={{state,dispatch, handleLogin, handleAddContent}}>
+    
      <Router>
          <Navbar />
        <Switch>   
-       <Suspense fallback={<div className='spinner'> <h3>Loading...</h3></div>}>
-         <Route path='/' exact component={LandingPage} />
-         <Route path='/dashboard'  exact component={InstructorsDashBoard} />
-         <Route path='/student' exact component={StudentDashBoard} />
-         <Route path='/courses' exact component={Courses} />
-         <Route path='/access-denied' exact render={()=> !state.authDetails && <CannotAccessPage />
-            }/>
-        </Suspense>
-       </Switch>
+       <Suspense fallback={<div className='flex justify-center my-40 spinner'></div>}>
+              <Route path='/' exact component={LandingPage} />
+              <Route path='/denied' exact component={CannotAccessPage} />  
+              <Route path='/courses' exact component={Courses} />
+              <Route path='/instructor' exact  render={()=> isLoggedIn ?  (<InstructorsDashBoard />) :  (<CannotAccessPage/>)}/>
+              <Route path='/student' exact  render={()=> isLoggedIn?  (<StudentDashBoard />) :  (<CannotAccessPage/>)}/>
+              <Route path="/not-found" component={NotFound} />
+       </Suspense>
+        </Switch>
        <FooterPage />
      </Router>
-     </GlobalContext.Provider>
     </div>
   );
 }

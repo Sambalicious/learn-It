@@ -5,12 +5,6 @@
 @import "tailwindcss/utilities";
 
 
-.star-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-}
 
 input[type="radio"]{
     display: none;
@@ -26,11 +20,13 @@ input[type="radio"]{
 .spinner:before{
     content: '';
     box-sizing: border-box;
-    position: absolute;
+    display:flex;
+    justify-content: center;
+    text-align: center;
     top:50%;
     left: 50%;
     height: 80px;
-    width: 80px;
+    width: 90px;
     margin-top: -30px;
     margin-left: -30px;
     border-radius: 50%;
@@ -42,9 +38,12 @@ input[type="radio"]{
 
 }
 
-.div .spinner{
-    width:100vw;
-    height: 100vh;
+div .spinner{
+  top: 50%;
+  left:50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 div .spinner h3{
@@ -57,4 +56,13 @@ div .spinner h3{
     to{
         transform: rotate(360deg);
     }
+}
+
+.style{
+    background: url('../utils/img/error2.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
 }
