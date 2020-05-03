@@ -4,8 +4,6 @@ import ReactPlayer from 'react-player'
 
 
 const FavouriteCourses = ({title, description, author, video}) => {
-
-
         
        
     return ( 
@@ -25,7 +23,7 @@ const FavouriteCourses = ({title, description, author, video}) => {
                     </div>
                     
                     <div className="px-6 py-4">
-                   Rate this course <StarRating />
+                   Rate this course: <StarRating />
                     </div>
 
 

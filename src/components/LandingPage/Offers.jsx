@@ -2,8 +2,10 @@ import React, { useState,useEffect} from 'react';
 import OfferComponent from './OfferComponent'
 import axios from 'axios';
 import NetworkError from '../OtherPages/NetworkError';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
-
+toast.configure();
 const Offers = ({label}) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
@@ -15,12 +17,11 @@ const Offers = ({label}) => {
         .then(response=>{
             setLoading(false);
             setContents(response.data);
-            setError('');  
-        }).catch(error=>{
-
+        })
+        .catch(error=>{
             setLoading(false);
-            setContents([]);
-            setError(error.message, 'Ooops! something went wrong');
+            console.log(error)
+            toast.error('Something went wrong. check you Network connection')
             
         })
     }, [])

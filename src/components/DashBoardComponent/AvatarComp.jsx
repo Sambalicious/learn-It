@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import {StoreContext} from '../../provider/store'
+import {StoreContext} from '../../provider/store';
 
 
 
@@ -11,15 +11,21 @@ const AvatarComp = ({status}) => {
     return ( 
         
        <>
-         { auth.authDetails ?  <div className="p-6 bg-indigo-500 rounded ">
-            <img className="w-16 h-16 mx-auto rounded-full" alt="profile_image" src={imageUrl} />
-            <div className="text-center">
-              <h2 className="mb-2 text-lg font-bold text-white uppercase">{name} </h2>
-              <div className="font-bold text-red-400">{status} </div>
-              <div className="font-bold text-white"> {email} </div>
-             
-           </div>
-        </div> : null}
+         { auth.authDetails ?  
+            (<div className="md:flex bg-white rounded-lg shadow sm:shadow-md my-8 mx-6 sm:mt-4 xl:shadow-2xl p-6">
+                  <img className="h-16 w-16 md:h-24 md:w-24 rounded-full  mx-auto md:mx-0 md:mr-6" alt="Profile_image" src={imageUrl} />
+                <div className="text-center md:text-left">
+                    <h2 className="text-lg text-blue-700 capitalize">{name} </h2>
+                    <div className="text-purple-500">{status} </div>
+                  <div className="text-blue-600">{email} </div>
+                    
+                </div>
+           </div>)
+             : null}
+
+
+
+     
        </>
      );
 }

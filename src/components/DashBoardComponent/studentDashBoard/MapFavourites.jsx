@@ -10,22 +10,13 @@ const MapFavourites = () => {
 
 
     const [loading, setLoading] = useState(true);
+
+    useEffect(()=>{
+        setLoading(false)
+    })
  
     console.log(courses)
-
-        // get the previous state from localStorage
-        
-        
-        useEffect(()=>{
-            try{
-                JSON.parse(localStorage.getItem('favouriteCourses'))
-            setLoading(false)
-            }catch(e){
-                console.log(e)
-            }
-            
-    },[])  
-      
+           
     return ( 
         
         <div className="mb-4 text-center">

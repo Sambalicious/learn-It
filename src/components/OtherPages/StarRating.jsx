@@ -28,7 +28,7 @@ const StarRating = () => {
                   />
                  </label>)
             })}
-            <div className="ml-4">{rating ? `Rated: ${rating} stars`: null} </div>
+            <div className="ml-4">{rating ? `${rating} stars`: null} </div>
                         
         </div>
      );

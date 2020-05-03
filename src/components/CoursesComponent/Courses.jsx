@@ -2,12 +2,13 @@ import React from 'react';
 import { Helmet} from 'react-helmet'
 import Offers from '../LandingPage/Offers';
 
+
 const Courses = () => {
     return ( 
         <>
             <Helmet>
                <title>Learn-It | Courses</title>
-          </Helmet>
+            </Helmet>
             <Offers label={"Available Courses"} />
         </>
      );

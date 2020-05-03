@@ -7,6 +7,8 @@ import InputField from '../InputField'
 import Button from '../../DashBoardComponent/Button'
 
 
+
+
 toast.configure()
 const Form = () => {
 
@@ -42,7 +44,7 @@ const Form = () => {
         const [error, setError] = useState('');
         const [videoUrl, setVideoUrl] = useState('')
 
-
+       
         //upload image to imgur
         useEffect(()=>{            
           axios.post("https://api.imgur.com/3/image",image, {
@@ -51,7 +53,7 @@ const Form = () => {
                         }
                       }).then(response=> {
                         setImageUrl(response.data.data.link);
-                        console.log(response.data.data.link)})
+                      })
                       .catch(error => {
                         console.log(error)
                        setError('Something went wrong')
@@ -78,19 +80,22 @@ const Form = () => {
             })
         },[video])
 
+        const user_id = parseInt(localStorage.getItem("user_id"));
+
           ////function that is called on submit
         const handleSubmit = (e) =>{
             e.preventDefault();
-            if ([title, description,author, imageUrl, videoUrl].includes('')){
+            if ([title, description,author, imageUrl, videoUrl, user_id].includes('')){
               toast.error('All fields are required');
             } else{
-
+             
              const courseData = {
               "title": title,
               "description":description,
               "author": author,
               "image": imageUrl,
-              "video": videoUrl
+              "video": videoUrl,
+              "userId": user_id
              }             
 
              toast.success('You have succesfully created a content');
@@ -112,7 +117,7 @@ const Form = () => {
             className="container max-w-md px-4 md:w-full">
   
 
-        <InputField placeholder={"Principles of Web Development by samuel"} 
+        <InputField placeholder={"Principles of Web Development"} 
               label={'Course Title'}
               value={title}
               type={'text'} 
@@ -158,7 +163,7 @@ const Form = () => {
                 onChange={handleAuthor}
                 type={'text'}
             />
-
+            
           <Button
               onSubmit={handleSubmit}
               label={'Add Content'}

@@ -1,8 +1,11 @@
-import React, { lazy,Suspense, useContext , useEffect, useState} from 'react';
+import React, { lazy,Suspense, useContext } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Navbar from './Navbar/Navbar';
 import FooterPage from './components/Footer/FooterPage';
 import { StoreContext } from './provider/store';
+import SearchCourse from './components/CoursesComponent/SearchCourse';
+import InstructorProfile from './components/DashBoardComponent/Instructors/InstructorProfile';
+import EachCourses from './components/DashBoardComponent/EachCourses';
 
 const NotFound = lazy(()=> import('./components/OtherPages/NotFound'));
 const Courses = lazy(()=>import ('./components/CoursesComponent/Courses'));
@@ -18,34 +21,22 @@ function App() {
   const {auth} = useContext(StoreContext)
   const {isLoggedIn} = auth
 
- /*
-
-useEffect(()=> {
-  const data = localStorage.getItem('Fav');
-  try{
-   // handleAddCourseToFav(JSON.parse(data))
-    console.log('first', data)
-  }catch(e){
-
-  }
- }, [])
- useEffect(()=>{
- localStorage.setItem('Fav', JSON.stringify(courses.courses))
-   console.log('2nd render')
- })
- */
   return (
     <div >
     
      <Router>
          <Navbar />
        <Switch>   
-       <Suspense fallback={<div className='flex justify-center my-40 spinner'></div>}>
+       <Suspense fallback={<div className='flex justify-center my-40 md:my-64 spinner'></div>}>
+                          
+              <Route path='/courses/:id'  component={EachCourses} />
+              <Route path='/courses' exact render={props=> <Courses {...props} />} />
+              <Route path='/search'  component={SearchCourse} />
+              <Route path='/instructor'  render={()=> isLoggedIn ?  (<InstructorsDashBoard />) :  (<CannotAccessPage/>)}/>
+              <Route path='/instructor/profile' exact component={InstructorProfile}   />
+              <Route path='/student'   render={()=> isLoggedIn?  (<StudentDashBoard />) :  (<CannotAccessPage/>)}/>
               <Route path='/' exact component={LandingPage} />
-              <Route path='/denied' exact component={CannotAccessPage} />  
-              <Route path='/courses' exact component={Courses} />
-              <Route path='/instructor' exact  render={()=> isLoggedIn ?  (<InstructorsDashBoard />) :  (<CannotAccessPage/>)}/>
-              <Route path='/student' exact  render={()=> isLoggedIn?  (<StudentDashBoard />) :  (<CannotAccessPage/>)}/>
+              <Route path='/denied'  component={CannotAccessPage} />  
               <Route path="/not-found" component={NotFound} />
        </Suspense>
         </Switch>

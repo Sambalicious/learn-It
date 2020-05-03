@@ -1,4 +1,5 @@
 import React, {useState, useContext,} from 'react';
+import axios from 'axios';
 import GoogleLogin from 'react-google-login';
 import { GoogleLogout } from 'react-google-login';
 import {useHistory} from 'react-router';
@@ -10,9 +11,12 @@ const Login = () => {
   // the handleLogin action from GlobalContext
   //const {handleLogin} = useContext(GlobalContext)
 
-   const {auth} = useContext(StoreContext);
+   const {auth, user} = useContext(StoreContext);
   
-      const {handleLogin} = auth
+   
+   
+      const {handleLogin} = auth;
+      const {checkUser} = user;
   //initialized and empty state
     const [state, SetState] = useState(null)
    
@@ -28,19 +32,32 @@ const Login = () => {
     handleLogin(response.profileObj)
     //The response gotten from the request is then stored in this state
     //fullname is then extracted
+    
 
       SetState(response.profileObj);
-      const {name} = response.profileObj
-        setFullname(name)    
-        
+      const {name, googleId, email, givenName, familyName} = response.profileObj
+
+      const user ={
+        googleId, 
+        email,
+        lastname: familyName,
+        firstName: givenName,
+        imageUrl: 'https://res.cloudinary.com/dev-sam/image/upload/v1566578423/samuel_rgzxlo.jpg'
+      }
+
+      const token = response.tokenId
+
+      checkUser(user,token)
+
+        setFullname(name)      
   }
   
   ///handle logout, clear localStorage and reload the page
 
     const logout = () => {
       SetState(null)  
+      localStorage.clear();
       history.go(0) 
-      localStorage.clear()
   }
   
   

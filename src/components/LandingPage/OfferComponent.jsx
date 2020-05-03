@@ -1,4 +1,6 @@
-import React, { useContext} from 'react'
+import React, { useContext, useEffect} from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios'
 import Button from '../DashBoardComponent/Button';
 import { toast} from  'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,31 +10,6 @@ import { StoreContext } from '../../provider/store';
 toast.configure()
 const OfferComponent = ({coverImage, title, description, author, id, video}) => {
 
-    
-      const {course} = useContext(StoreContext);
-        const { handleAddCourseToFav}= course
-
-            const data = {
-                coverImage,
-                 title,
-                description,
-                 author,
-                 id, 
-                 video
-              }
-
-              
-          
-        const addCourseToFav = () =>{
-                toast.success('Course has been added to your dashboard')        
-            handleAddCourseToFav(data)
-                
-            
-            // localStorage.setItem('favouriteCourses', JSON.stringify(courses))
-                
-    }
-    
-  
     return ( 
         <>
 
@@ -42,7 +19,7 @@ const OfferComponent = ({coverImage, title, description, author, id, video}) => 
                         <img className="w-full h-64" key={id} src={coverImage} alt="course_image"/>
 
                     <div className="px-6 py-4"> 
-                    <div className="mb-2 text-xl text-purple-900 font-bold">{title} <div>
+                    <div className="mb-2 text-xl font-bold text-purple-900">{title} <div>
                        <p className="inline-block px-3 py-1 text-sm font-semibold text-gray-700 text-purple-600 rounded-full">Author: {author} </p>
                    </div>
                     </div>
@@ -52,7 +29,7 @@ const OfferComponent = ({coverImage, title, description, author, id, video}) => 
                     
                     </div>
                     <div className="px-6 py-4">
-                    <Button label={'Add to Favourite'} onSubmit={addCourseToFav} />
+                 <Link to={`/courses/${id}`}> <Button label={'Enroll'}/> </Link>
                     
                     </div>
 

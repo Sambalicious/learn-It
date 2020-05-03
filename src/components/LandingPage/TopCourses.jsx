@@ -13,11 +13,11 @@ const TopCourses = () => {
     return ( 
         <div className="px-4 pb-5 my-6 bg-gray-200 md:pt-4">
             <h2 className="py-3 my-4 ml-8 text-3xl font-extrabold text-red-900 md:my-10">Top Courses</h2>
-            <Link to="/courses">
+            <Link to="/search">
                 
             <div className="grid-cols-4 gap-5 md:grid">
                 
-            <IconContext.Provider value={{size:"4rem", color:'orange'}}>
+            <IconContext.Provider value={{size:"3rem", color:'orange'}}>
 
             <CourseCard 
                 label={'Web Development'} 
