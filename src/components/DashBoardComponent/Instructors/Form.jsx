@@ -73,48 +73,91 @@ const Form = () => {
             axios.post(url,fd)
             .then(response =>{
             setVideoUrl(response.data.secure_url)  
+            console.log(response.data.secure_url)  
             })
             .catch(error=>{
               console.log(error)
-              
             })
         },[video])
 
         const user_id = parseInt(localStorage.getItem("user_id"));
 
-          ////function that is called on submit
+          ////function that is called on FormSubmit
         const handleSubmit = (e) =>{
             e.preventDefault();
             if ([title, description,author, imageUrl, videoUrl, user_id].includes('')){
               toast.error('All fields are required');
-            } else{
-             
-             const courseData = {
-              "title": title,
-              "description":description,
-              "author": author,
-              "image": imageUrl,
-              "video": videoUrl,
-              "userId": user_id
-             }             
+            }else{
 
-             toast.success('You have succesfully created a content');
+              const courseData = {
+                "title": title,
+                "description":description,
+                "author": author,
+                "image": imageUrl,
+                "video": videoUrl,
+                "user_id": user_id
+               } 
+                          
+                  axios.post('https://app-server20.herokuapp.com/courses',courseData,{
+                   headers: {
+                   "Content-type": "application/json; charset=UTF-8"
+                      }
+                   })
+                 .then(response=>{
+                  console.log(response);
+                  toast.success('You have succesfully created a content')
+                 })
+                 .catch(error =>{
+                  toast.error('something went wrong. please try again');
+                  console.log(error)
+                 }) 
+  
+                 const favStars = {
+                   users: []
+                 }
+                
+                 axios.post('https://app-server20.herokuapp.com/favourites',favStars,{
+                   headers: {
+                   "Content-type": "application/json; charset=UTF-8"
+                      }
+                   })
+                 .then(response=>{
+                  console.log(response);
+                 })
+                 .catch(error =>{
+              
+                  console.log(error)
+                 });
+                 
+                 axios.post('https://app-server20.herokuapp.com/stars',favStars,{
+                   headers: {
+                   "Content-type": "application/json; charset=UTF-8"
+                      }
+                   })
+                 .then(response=>{
+                  console.log(response);
+  
+                 })
+                 .catch(error =>{
+                  console.log(error)
+                 }) 
 
-               axios.post('https://app-server20.herokuapp.com/courses',courseData,{
-                 headers: {
-                 "Content-type": "application/json; charset=UTF-8"
-                    } })
-               .then(response=>console.log(response))
-               .catch(error => console.log(error))
-               history.push('/')
-            
+                 history.push('/')
+            } 
         } 
-      }        
-        
+       
+
     return ( 
         <div className="justify-center md:flex sm:items-center">
             <form onSubmit={handleSubmit} 
             className="container max-w-md px-4 md:w-full">
+
+          <InputField
+              label={'Upload Course Video'} 
+              onChange={handleVideo} 
+              type={'file'}
+              accept={'video/*'}
+          />
   
 
         <InputField placeholder={"Principles of Web Development"} 
@@ -142,13 +185,6 @@ const Form = () => {
        </textarea>
     </div>
   </div>
-
-          <InputField
-              label={'Upload video'} 
-              onChange={handleVideo} 
-              type={'file'}
-              accept={'video/*'}
-          />
 
           <InputField
                 label={'Course Cover Image'} 

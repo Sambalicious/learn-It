@@ -6,16 +6,19 @@ import {StoreContext} from '../../../provider/store'
 
 const MapFavourites = () => {
     const { course } = useContext(StoreContext);
-    const {courses} = course;
-
-
+    const {favCourses, getUserFavourites} = course;
+    const [courses, setCourses] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    console.log(course);
+    console.log(favCourses);
     useEffect(()=>{
-        setLoading(false)
-    })
- 
-    console.log(courses)
+        const id = localStorage.getItem('user_id');
+       getUserFavourites(id);
+       setCourses(favCourses)
+       setLoading(false)
+    }, [])
+
            
     return ( 
         
@@ -37,12 +40,7 @@ const MapFavourites = () => {
                     key={course.id} 
             />)
            : null }
-                </div>
-        
-
-           
-                                                          
-    
+                </div>                                                      
     </div>
      );
 }

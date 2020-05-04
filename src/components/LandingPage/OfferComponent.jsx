@@ -8,7 +8,7 @@ import { StoreContext } from '../../provider/store';
 
 
 toast.configure()
-const OfferComponent = ({coverImage, title, description, author, id, video}) => {
+const OfferComponent = ({coverImage, title, description, author, id}) => {
 
     return ( 
         <>

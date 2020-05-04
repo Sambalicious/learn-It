@@ -18,9 +18,10 @@ const DisplayCourses = (props) => {
     const [error, setError] = useState('');
     const [contents, setContents ] = useState([]);
 
-   const {favourites} = useContext(StoreContext);
+   const {course} = useContext(StoreContext);
 
-   const {removeFavourite, handleFavourite} = favourites;
+   const {addCourseToFav} = course
+  
 
     useEffect(()=>{
        
@@ -38,21 +39,11 @@ const DisplayCourses = (props) => {
         })
     }, [id]);
 
-    const favouriteData = {
-        users:[]
-    }
+    
+    const user_id = parseInt(localStorage.getItem("user_id"));
 
-    const addToFavourite = ()  =>{
-            handleFavourite()
-            toast.success('Course has been added to your dashboard')
-            console.log(id)
-            axios.post('https://app-server20.herokuapp.com/favourites', favouriteData,  {
-                headers: {
-                  "Content-Type": "application/json",
-                },
-              }).then(response =>{
-                  console.log(response)
-              }).catch(e=> console.log(e));
+    const addToFavourite = async() =>{
+           await addCourseToFav(user_id, id)
             
     }
     return ( 
