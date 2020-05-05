@@ -8,8 +8,7 @@ import {StoreContext} from '../../provider/store'
  
 const Login = () => {
   // the handleLogin action from GlobalContext
-  //const {handleLogin} = useContext(GlobalContext)
-
+  
    const {auth, user} = useContext(StoreContext);
   
    
@@ -47,8 +46,7 @@ const Login = () => {
 
         setFullname(name)      
   }
-  
-  ///handle logout, clear localStorage and reload the page
+    ///handle logout, clear localStorage and reload the page
 
     const logout = () => {
       SetState(null)  
@@ -56,7 +54,7 @@ const Login = () => {
       history.go(0) 
   }
     return ( 
-        <div> 
+        <> 
             
          {  /////if there is no state, login button is displayed otherwise Logout button is displayed
            !auth.isLoggedIn ? <GoogleLogin 
@@ -85,10 +83,9 @@ const Login = () => {
        </div>  
          }
             
-        </div>
+        </>
      );
 }
- 
 export default Login;
 
 

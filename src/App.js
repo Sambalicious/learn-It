@@ -16,7 +16,7 @@ const InstructorProfile = lazy(()=>import('./components/DashBoardComponent/Instr
 const SearchCourse = lazy(()=>import('./components/CoursesComponent/SearchCourse'));
 
 
-function App(props) {
+function App() {
 
   const {auth} = useContext(StoreContext)
   const {isLoggedIn} = auth
@@ -30,14 +30,14 @@ function App(props) {
        <Suspense fallback={<div className='flex justify-center my-40 md:my-64 spinner'></div>}>
                           
               <Route path='/courses/:id'  component={EachCourses} />
-              <Route path='/courses' exact render={props=> <Courses {...props} />} />
+              <Route path='/courses' exact render={()=> <Courses />} />
               <Route path='/search'  component={SearchCourse} />
-              <Route path="/instructor/create"  render={props=> isLoggedIn ? <InstructorProfile {...props} /> : <CannotAccessPage />} />
+              <Route path="/instructor/create"  render={()=> isLoggedIn ? <InstructorProfile  /> : <CannotAccessPage />} />
               <Suspense fallback={<div className='flex justify-center my-40 md:my-64 spinner'></div>}>
-              <Route path='/instructor' exact  render={props=> isLoggedIn ?  (<InstructorsDashBoard {...props} />) :  (<CannotAccessPage/>)}/>
+              <Route path='/instructor' exact  render={()=> isLoggedIn ?  (<InstructorsDashBoard  />) :  (<CannotAccessPage/>)}/>
               </Suspense>
               <Suspense fallback={<div className='flex justify-center my-40 md:my-64 spinner'></div>}>
-              <Route path='/student'   render={(props)=> isLoggedIn?  (<StudentDashBoard {...props} />) :  (<CannotAccessPage/>)}/>
+              <Route path='/student'   render={()=> isLoggedIn?  (<StudentDashBoard />) :  (<CannotAccessPage/>)}/>
               </Suspense>
               <Route path='/' exact component={LandingPage} />
               <Route path='/denied'  component={CannotAccessPage} />  

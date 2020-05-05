@@ -37,7 +37,7 @@ const DisplayCourses = (props) => {
             toast.error('Something went Wrong, Check your network connection')
             
         })
-    });
+    }, []);
 
     
     const user_id = parseInt(localStorage.getItem("user_id"));
@@ -50,8 +50,8 @@ const DisplayCourses = (props) => {
         <div className="mx-2">     
                 {loading ? <div className='flex justify-center my-40 spinner'></div> : null}
                 {error ? <NetworkError /> : null}
-              <div className="mt-6 mb-4 text-xl font-bold text-center text-purple-900">{contents.title} </div>
-            <div className="flex justify-center mb-6">
+              <div className="mt-6 text-xl font-bold text-center text-purple-900 md:mb-4">{contents.title} </div>
+            <div className="flex justify-center md:mb-6">
                     <ReactPlayer 
                     width="720px"
                      height="400px" 

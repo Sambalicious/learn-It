@@ -4,7 +4,7 @@ import MapFavourites from './MapFavourites';
 
 
 
-const StudentComponent = (props) => {
+const StudentComponent = () => {
    
     return ( 
 

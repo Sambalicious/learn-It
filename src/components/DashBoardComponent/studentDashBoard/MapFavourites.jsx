@@ -1,8 +1,6 @@
-import React, {  useEffect,useContext, useState, useMemo } from  'react';
+import React, {  useEffect,useContext, useState } from  'react';
 import FavouriteCourses from './FavouriteCourses'
-import {StoreContext} from '../../../provider/store'
-import OfferComponent from '../../LandingPage/OfferComponent';
-
+import {StoreContext} from '../../../provider/store';
 
 
 const MapFavourites = () => {
@@ -25,7 +23,7 @@ const MapFavourites = () => {
             {loading ? <div className='flex justify-center my-40 spinner'></div> : null}
             
             <div className="bg-purple-100 md:grid md:grid-cols-3 md:gap-4">
-            {!favCourses && 
+            {favCourses.length === 0 && 
             <div className="flex justify-center">
                 <h3>You haven't added any course to your Dashboard yet.</h3>
                 </div>}

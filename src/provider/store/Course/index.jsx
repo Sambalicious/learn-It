@@ -7,7 +7,7 @@ import courseReducer, { initialCourseState } from '../../reducers/Course'
 import { 
     ADD_CONTENT, GET_COURSE, GET_AUTHOR, 
      GET_USER_COURSES,
-     GET_FAVOURITES, DELETE_COURSE, ADD_RATING, REMOVE_FAVOURITE 
+     GET_FAVOURITES, DELETE_COURSE, ADD_RATING, 
     } from '../../actions';
 
 toast.configure();
@@ -20,7 +20,6 @@ export default () => {
     const handleStarRating = id => dispatch({type:ADD_RATING, payload: id})
     const handleGetUserCourses = data =>dispatch({type:GET_USER_COURSES, payload:data});
     const handleGetFavCourses = data => dispatch({type:GET_FAVOURITES, payload:data});
-    const handleRemoveFavCourses = id =>dispatch({type:REMOVE_FAVOURITE,payload:id})
     const handleDeleteCourse = id =>dispatch({type:DELETE_COURSE, payload:id});
     const handleGetCourse = data =>dispatch({type:GET_COURSE, payload:data});
 
@@ -32,7 +31,7 @@ export default () => {
           );
           
           if (checkUsers.data[0].users.includes(user_id)) {
-            console.log('already added')
+            console.log('course already added')
           } else {
             console.log('not yet added')
           }
@@ -57,14 +56,14 @@ export default () => {
           
           const response = await axios.get(`${ENDPOINT}/courses/${id}`);
     
-          getAuthor(response.data.user_id);
+          handleAuthorGet(response.data.user_id);
     
           checkFavCourse(parseInt(localStorage.getItem("user_id")), parseInt(id));
     
           handleStarRating(response.data.id);
           handleGetCourse(response.data)
         } catch (error) {
-            toast.error('something went wrong. please try again')
+            
             console.log(error)
           }
         }
@@ -75,7 +74,7 @@ export default () => {
                 const response = await axios.get(`${ENDPOINT}/courses?user_id=${id}`);
                 handleGetUserCourses(response.data);
             }catch(e){
-                toast.error('something went wrong, please try again')
+                toast.error('something went wrong, Check your Internet connection')
             }
 
         }
@@ -99,7 +98,7 @@ export default () => {
 
                   toast.success('course has been added to your dashboard')
             }catch(e){
-                toast.error('something went wrong, please try again')
+              toast.error('something went wrong, please try again')
                 console.log(e)
             }
         }
@@ -123,7 +122,7 @@ export default () => {
                 toast.success('course has been removed from your dashboard')
                
               } catch (error) {
-                toast.error('something went wrong, please try again')
+               toast.error('something went wrong, please try again')
               }
         }
 
@@ -145,7 +144,7 @@ export default () => {
               });
               
             } catch (error) {
-                toast.error('something went wrong, please try again')
+               console.log(error)
             }
           };
 
@@ -166,7 +165,7 @@ export default () => {
       });
       handleStarRating(course_id);
     } catch (error) {
-        toast.error('something went wrong, please try again')
+       toast.error('something went wrong, please try again')
     }
   };
 
@@ -186,9 +185,6 @@ export default () => {
     } catch (error) {
         toast.error('something went wrong, please try again')
     }
-
-
-
 
 }
 

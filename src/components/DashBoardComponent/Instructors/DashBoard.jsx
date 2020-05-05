@@ -1,6 +1,5 @@
 import React from 'react';
 import AvatarComp from '../AvatarComp';
-import Form from './Form';
 import InstructorCourses from './InstructorCourses';
 import Button from '../Button';
 import { Link } from 'react-router-dom';
