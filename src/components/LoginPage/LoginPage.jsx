@@ -1,5 +1,4 @@
 import React, {useState, useContext,} from 'react';
-import axios from 'axios';
 import GoogleLogin from 'react-google-login';
 import { GoogleLogout } from 'react-google-login';
 import {useHistory} from 'react-router';
@@ -30,10 +29,7 @@ const Login = () => {
   const responseGoogle = response => {
     ///dispatch an action
     handleLogin(response.profileObj)
-    //The response gotten from the request is then stored in this state
-    //fullname is then extracted
-    
-
+    //The response gotten from the request is then stored in this state  
       SetState(response.profileObj);
       const {name, googleId, email, givenName, familyName} = response.profileObj
 
@@ -44,9 +40,9 @@ const Login = () => {
         firstName: givenName,
         imageUrl: 'https://res.cloudinary.com/dev-sam/image/upload/v1566578423/samuel_rgzxlo.jpg'
       }
-
+        ///save token id
       const token = response.tokenId
-
+      ///authenticate and authorise user
       checkUser(user,token)
 
         setFullname(name)      
@@ -59,8 +55,6 @@ const Login = () => {
       localStorage.clear();
       history.go(0) 
   }
-  
-  
     return ( 
         <div> 
             

@@ -17,13 +17,12 @@ const Offers = ({label}) => {
         .then(response=>{
             setLoading(false);
             setContents(response.data);
+            setError('')
         })
         .catch(error=>{
             setLoading(false);
-            console.log(error)
             toast.error('Something went wrong. check you Network connection')
-            
-        })
+          })
     }, [])
 
     

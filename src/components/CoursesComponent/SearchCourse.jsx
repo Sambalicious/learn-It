@@ -1,6 +1,5 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
-import InputField from '../DashBoardComponent/InputField'
 import OfferComponent from '../LandingPage/OfferComponent';
 import NetworkError from '../OtherPages/NetworkError';
 

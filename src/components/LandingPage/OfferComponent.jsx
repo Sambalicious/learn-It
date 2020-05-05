@@ -1,10 +1,9 @@
-import React, { useContext, useEffect} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios'
 import Button from '../DashBoardComponent/Button';
 import { toast} from  'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { StoreContext } from '../../provider/store';
+
 
 
 toast.configure()
@@ -29,7 +28,7 @@ const OfferComponent = ({coverImage, title, description, author, id}) => {
                     
                     </div>
                     <div className="px-6 py-4">
-                 <Link to={`/courses/${id}`}> <Button label={'Enroll'}/> </Link>
+                 <Link to={`/courses/${id}`}> <Button label={'View Course'}/> </Link>
                     
                     </div>
 

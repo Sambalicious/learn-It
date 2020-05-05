@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import courseReducer, { initialCourseState } from '../../reducers/Course'
 import { 
     ADD_CONTENT, GET_COURSE, GET_AUTHOR, 
-    COUNT_STARS, GET_USER_COURSES,
+     GET_USER_COURSES,
      GET_FAVOURITES, DELETE_COURSE, ADD_RATING 
     } from '../../actions';
 
@@ -76,10 +76,7 @@ export default () => {
         const getUserCourse = async (id) =>{
             try{
                 const response = await axios.get(`${ENDPOINT}/courses?user_id=${id}`);
-
                 handleGetUserCourses(response.data);
-
-
             }catch(e){
                 toast.error('something went wrong, please try again')
             }
@@ -95,7 +92,6 @@ export default () => {
                 const updateData = {
                   users: [...users, user_id],
                   };
-                  
                   await axios.put(`${ENDPOINT}/favourites/${id}`, updateData, {
                     headers: {
                       "Content-Type": "application/json",
@@ -104,12 +100,11 @@ export default () => {
 
                   checkFavCourse(user_id, course_id);
 
-                  toast.success('course has been added to favourites')
+                  toast.success('course has been added to your dashboard')
             }catch(e){
                 toast.error('something went wrong, please try again')
                 console.log(e)
             }
-            
         }
 
         const removeFavourite =  async(user_id, course_id) =>{
@@ -128,7 +123,7 @@ export default () => {
                   },
                 });
                 checkFavCourse(user_id, course_id);
-                toast.success('course has been removed from favourites')
+                toast.success('course has been removed from your dashboard')
                
               } catch (error) {
                 toast.error('something went wrong, please try again')
@@ -140,16 +135,18 @@ export default () => {
               
               const userFavourites = await axios.get(`${ENDPOINT}/favourites`);
               const courseIds = [];
-              const getCourses = async (id) => {
-                const res = await axios.get(`${ENDPOINT}/courses?id=${id}`);
-                courseIds.push(res.data[0]);
+              const getCourses = async(id) => {
+                const response = await axios.get(`${ENDPOINT}/courses?id=${id}`);
+                courseIds.push(response.data[0]);
                 handleGetFavCourses(courseIds)
               };
-              await userFavourites.data.map((data) => {
+              
+             await userFavourites.data.map((data) => {
                 if (data.users.includes(parseInt(id))) {
                   getCourses(data.id);
                 }
               });
+              
             } catch (error) {
                 toast.error('something went wrong, please try again')
             }

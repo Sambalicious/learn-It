@@ -34,10 +34,10 @@ const DisplayCourses = (props) => {
 
             setLoading(false);
             setContents([]);
-            setError(error.message, 'Ooops! something went wrong');
+            toast.error('Something went Wrong, Check your network connection')
             
         })
-    }, [id]);
+    });
 
     
     const user_id = parseInt(localStorage.getItem("user_id"));
@@ -51,7 +51,7 @@ const DisplayCourses = (props) => {
                 {loading ? <div className='flex justify-center my-40 spinner'></div> : null}
                 {error ? <NetworkError /> : null}
               <div className="mt-6 mb-4 text-xl font-bold text-center text-purple-900">{contents.title} </div>
-            <div className="flex justify-center mb-4">
+            <div className="flex justify-center mb-6">
                     <ReactPlayer 
                     width="720px"
                      height="400px" 
@@ -60,9 +60,10 @@ const DisplayCourses = (props) => {
             </div>
 
             <div>
-            <h3 className="flex justify-center font-sans text-lg text-purple-500 text-ceter">Course Description</h3>
-                <p className="mx-10 text-black"> {contents.description} </p>
-            <p className="flex justify-center mb-4 text-base text-purple-700">Author: {contents.author} </p>
+            <h3 className="flex justify-center my-2 font-sans text-lg text-purple-500 text-ceter">Course Description</h3>
+                <p className="justify-center mb-4 text-black"> {contents.description} </p>
+            <p className="flex justify-center mb-2 text-base text-purple-700">Author: </p>
+            <p  className="flex justify-center mb-4 text-base text-purple-700">{contents.author}</p>
             </div>
             
             <div className="flex justify-center mx-auto mb-4">
