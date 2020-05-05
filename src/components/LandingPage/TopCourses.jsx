@@ -12,7 +12,7 @@ import {MdHeadsetMic, MdGroup} from 'react-icons/md';
 const TopCourses = () => {
     return ( 
         <div className="px-4 pb-5 my-6 bg-gray-200 md:pt-4">
-            <h2 className="py-3 my-4 ml-8 text-3xl font-extrabold text-red-900 md:my-10">Top Courses</h2>
+            <h2 className="py-3 my-4 ml-8 text-3xl font-extrabold text-red-900 md:my-8">Top Courses</h2>
             
                 
             <div className="grid-cols-4 gap-5 md:grid">

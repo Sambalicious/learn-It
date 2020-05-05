@@ -32,8 +32,8 @@ function App() {
               <Route path='/courses/:id'  component={EachCourses} />
               <Route path='/courses' exact render={props=> <Courses {...props} />} />
               <Route path='/search'  component={SearchCourse} />
-              <Route path='/instructor'  render={()=> isLoggedIn ?  (<InstructorsDashBoard />) :  (<CannotAccessPage/>)}/>
-              <Route path='/instructor/profile' exact component={InstructorProfile}   />
+              <Route path="/instructor/create"  render={()=> isLoggedIn ? <InstructorProfile /> : <CannotAccessPage />} />
+              <Route path='/instructor' exact  render={()=> isLoggedIn ?  (<InstructorsDashBoard />) :  (<CannotAccessPage/>)}/>
               <Route path='/student'   render={()=> isLoggedIn?  (<StudentDashBoard />) :  (<CannotAccessPage/>)}/>
               <Route path='/' exact component={LandingPage} />
               <Route path='/denied'  component={CannotAccessPage} />  

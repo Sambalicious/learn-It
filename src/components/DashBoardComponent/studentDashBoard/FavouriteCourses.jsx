@@ -9,7 +9,7 @@ import {StoreContext} from '../../../provider/store'
 
 toast.configure()
 const FavouriteCourses = ({coverImage, title, description, author, id}) => {
-
+        const history = useHistory();
     const {course}= useContext(StoreContext);
 
     const {removeFavourite} = course;
@@ -30,7 +30,7 @@ const FavouriteCourses = ({coverImage, title, description, author, id}) => {
 
                     <div className="px-6 py-4"> 
                     <div className="mb-2 text-xl font-bold text-purple-900 capitalize">{title} <div>
-                       <p className="inline-block px-3 py-1 text-sm font-semibold text-gray-700 text-purple-600 rounded-full">Author: {author} </p>
+                       <p className="inline-block px-3 py-1 text-sm font-semibold text-center text-gray-700 text-purple-600 rounded-full">Author: {author} </p>
                    </div>
                     </div>
                         <p className="text-base text-gray-700">
