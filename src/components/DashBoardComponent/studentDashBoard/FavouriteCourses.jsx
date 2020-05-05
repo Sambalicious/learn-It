@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import {useHistory} from 'react-router';
+import { useHistory } from 'react-router'
 import Button from '../../DashBoardComponent/Button'
 import { toast} from  'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,21 +8,22 @@ import {StoreContext} from '../../../provider/store'
 
 
 toast.configure()
-const FavouriteCourses = ({coverImage, title, description, author, id},props) => {
-        const history = useHistory();
-    const {course}= useContext(StoreContext);
-    console.log(course, props)
+const FavouriteCourses = ({coverImage, title, description, author, id}) => {
+    const history = useHistory()
+        const {course} = useContext(StoreContext)
+   
     const {removeFavourite, getCourse} = course;
 
     const user_id = parseInt(localStorage.getItem("user_id"));
 
     useEffect(()=>{
-        //getCourse(props.match.params.id);
-    })
+        getCourse(id);
+    },[id])
 
     const deleteFavourite = async() =>{
-        await removeFavourite(user_id, course.course.id)   
-        console.log('delete clicked', id)
+        await removeFavourite(user_id, id)
+        history.go(0)   
+        
  }
 
     return ( 

@@ -37,6 +37,7 @@ const MapFavourites = () => {
                     description={course.description} 
                     video={course.video}
                     key={course.id} 
+                    id={course.id}
             />)
            : null }
 
