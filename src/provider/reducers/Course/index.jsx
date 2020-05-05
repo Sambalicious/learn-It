@@ -1,11 +1,12 @@
-import {ADD_CONTENT, ADD_FAVOURITE, DELETE_COURSE, REMOVE_FAVOURITE, GET_AUTHOR, GET_COURSE, GET_USER_COURSES, GET_FAVOURITES, ADD_RATING} from '../../actions'
+import {ADD_CONTENT, ADD_FAVOURITE, DELETE_COURSES,DELETE_COURSE, REMOVE_FAVOURITE, GET_AUTHOR, GET_COURSE, GET_USER_COURSES, GET_FAVOURITES, ADD_RATING, GET_COURSES} from '../../actions'
 export const initialCourseState = {
     courses: [],
     authors: [],
     author: [],
     favCourses: [],
     stars: [],
-    userCourses: []
+    userCourses: [],
+    course: []
   }
 
 const CourseReducer= (state=initialCourseState, action)=>{
@@ -25,9 +26,15 @@ const CourseReducer= (state=initialCourseState, action)=>{
             }
             
             case GET_COURSE: return {
-              ...state, courses: action.payload
+              ...state, course: action.payload
             }
             case DELETE_COURSE: return {
+              ...state, course: state.courses.filter(a => a.id !== action.payload)
+            }
+            case GET_COURSES: return {
+              ...state, courses: action.payload
+            }
+            case DELETE_COURSES: return {
               ...state, courses: state.courses.filter(course => course.id !== action.payload)
             }
             case GET_AUTHOR: return {

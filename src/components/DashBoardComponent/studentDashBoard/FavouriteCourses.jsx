@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {useHistory} from 'react-router';
 import Button from '../../DashBoardComponent/Button'
@@ -8,17 +8,21 @@ import {StoreContext} from '../../../provider/store'
 
 
 toast.configure()
-const FavouriteCourses = ({coverImage, title, description, author, id}) => {
+const FavouriteCourses = ({coverImage, title, description, author, id},props) => {
         const history = useHistory();
     const {course}= useContext(StoreContext);
-
-    const {removeFavourite} = course;
+    console.log(course, props)
+    const {removeFavourite, getCourse} = course;
 
     const user_id = parseInt(localStorage.getItem("user_id"));
 
+    useEffect(()=>{
+        //getCourse(props.match.params.id);
+    })
+
     const deleteFavourite = async() =>{
-        await removeFavourite(user_id, id)   
-        console.log('delete clicked')
+        await removeFavourite(user_id, course.course.id)   
+        console.log('delete clicked', id)
  }
 
     return ( 
@@ -38,12 +42,12 @@ const FavouriteCourses = ({coverImage, title, description, author, id}) => {
                         </p>
                     
                     </div>
-                    <div className="px-6 py-4">
+                    <div className="py-2 text-center">
                  <Link to={`/courses/${id}`}> <Button label={'View Course'}/> </Link>
                     </div>
 
-                    <div>
-                        <Button label={'Remove as Favourite'} onClick={deleteFavourite} />
+                    <div className="text-center">
+                        <Button label={'Remove as Favourite'} onSubmit={deleteFavourite} />
                     </div>
 
 

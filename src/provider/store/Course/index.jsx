@@ -7,7 +7,7 @@ import courseReducer, { initialCourseState } from '../../reducers/Course'
 import { 
     ADD_CONTENT, GET_COURSE, GET_AUTHOR, 
      GET_USER_COURSES,
-     GET_FAVOURITES, DELETE_COURSE, ADD_RATING 
+     GET_FAVOURITES, DELETE_COURSE, ADD_RATING, REMOVE_FAVOURITE 
     } from '../../actions';
 
 toast.configure();
@@ -20,6 +20,7 @@ export default () => {
     const handleStarRating = id => dispatch({type:ADD_RATING, payload: id})
     const handleGetUserCourses = data =>dispatch({type:GET_USER_COURSES, payload:data});
     const handleGetFavCourses = data => dispatch({type:GET_FAVOURITES, payload:data});
+    const handleRemoveFavCourses = id =>dispatch({type:REMOVE_FAVOURITE,payload:id})
     const handleDeleteCourse = id =>dispatch({type:DELETE_COURSE, payload:id});
     const handleGetCourse = data =>dispatch({type:GET_COURSE, payload:data});
 
@@ -41,7 +42,15 @@ export default () => {
         }
       };
 
+      const getAuthor =async (id) =>{
+        try{
+            const response = await axios.get(`${ENDPOINT}/users/${id}`);
+            handleAuthorGet(response.data)
 
+        }catch(e){
+            toast.error('something went wrong, please try again')
+        }
+    }
 
     const getCourse = async (id) => {
         try {
@@ -60,18 +69,6 @@ export default () => {
           }
         }
     
-      
-
-   
-       const getAuthor =async (id) =>{
-            try{
-                const response = await axios.get(`${ENDPOINT}/users/${id}`);
-                handleAuthorGet(response.data)
-
-            }catch(e){
-                toast.error('something went wrong, please try again')
-            }
-        }
 
         const getUserCourse = async (id) =>{
             try{
