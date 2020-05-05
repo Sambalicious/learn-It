@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import Login from '../components/LoginPage/LoginPage';
 
 
-
 const Navbar = () => {
   const [show, setShow] =  useState(true)
     return ( 
@@ -21,16 +20,24 @@ const Navbar = () => {
   <div className="flex-grow block w-full lg:flex lg:items-center lg:w-auto">
     <div  className={show ? "text-sm lg:flex-grow": 'hidden' }   >
 
+   
+
     <NavLink to="/courses" className="block mt-4 mr-4 text-teal-200 lg:inline-block lg:mt-0 hover:text-white ">
-        All Courses
+       All Courses
       </NavLink>  
    
       <NavLink to="/student" className="block mt-4 mr-4 text-teal-200 lg:inline-block lg:mt-0 hover:text-white">
-        Student's Dashboard
+       Student's Dashboard
       </NavLink>
       <NavLink to="/instructor" className="block mt-4 mr-4 text-teal-200 lg:inline-block lg:mt-0 hover:text-white">
-       Instructor's Dashboard
+      Instructor's Dashboard
       </NavLink>
+
+      <NavLink to="/search" className="block mt-4 mr-4 text-teal-200 lg:inline-block lg:mt-0 hover:text-white">
+     Search For Anything
+      </NavLink>
+
+      
       
     </div>
     

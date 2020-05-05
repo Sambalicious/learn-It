@@ -8,11 +8,13 @@ import {StoreContext} from '../../provider/store'
  
 const Login = () => {
   // the handleLogin action from GlobalContext
-  //const {handleLogin} = useContext(GlobalContext)
-
-   const {auth} = useContext(StoreContext);
   
-      const {handleLogin} = auth
+   const {auth, user} = useContext(StoreContext);
+  
+   
+   
+      const {handleLogin} = auth;
+      const {checkUser} = user;
   //initialized and empty state
     const [state, SetState] = useState(null)
    
@@ -26,26 +28,33 @@ const Login = () => {
   const responseGoogle = response => {
     ///dispatch an action
     handleLogin(response.profileObj)
-    //The response gotten from the request is then stored in this state
-    //fullname is then extracted
-
+    //The response gotten from the request is then stored in this state  
       SetState(response.profileObj);
-      const {name} = response.profileObj
-        setFullname(name)    
-        
+      const {name, googleId, email, givenName, familyName} = response.profileObj
+
+      const user ={
+        googleId, 
+        email,
+        lastname: familyName,
+        firstName: givenName,
+        imageUrl: 'https://res.cloudinary.com/dev-sam/image/upload/v1566578423/samuel_rgzxlo.jpg'
+      }
+        ///save token id
+      const token = response.tokenId
+      ///authenticate and authorise user
+      checkUser(user,token)
+
+        setFullname(name)      
   }
-  
-  ///handle logout, clear localStorage and reload the page
+    ///handle logout, clear localStorage and reload the page
 
     const logout = () => {
       SetState(null)  
+      localStorage.clear();
       history.go(0) 
-      localStorage.clear()
   }
-  
-  
     return ( 
-        <div> 
+        <> 
             
          {  /////if there is no state, login button is displayed otherwise Logout button is displayed
            !auth.isLoggedIn ? <GoogleLogin 
@@ -74,10 +83,9 @@ const Login = () => {
        </div>  
          }
             
-        </div>
+        </>
      );
 }
- 
 export default Login;
 
 
