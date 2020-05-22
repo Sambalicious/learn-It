@@ -6,13 +6,14 @@ import peter from '../../utils/img/peter.jpeg'
 import TopCourses from './TopCourses';
 import TeachWithUs from './TeachWithUs';
 
+
 const LandingPage = () => {
     return ( 
         <> 
           <Helmet>
-            <title>Learn-It | Home</title>
+            <title>EduGrid | Home</title>
           </Helmet>
-            <CarouselPage />
+            <CarouselPage /> 
             <TopCourses />
             <LearnWithUs  pics={peter} />
             <TeachWithUs />

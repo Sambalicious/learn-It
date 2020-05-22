@@ -12,16 +12,18 @@ const TeachWithUs = () => {
 
             <div className="md:mt-4 md:mr-16 md:mt-0 md:ml-6">
                     <div className="my-2 text-sm font-bold tracking-wide text-indigo-600 uppercase sm:pt-4 sm:mt-2">
-                            Teach on Learn-It
+                            Teach on EduGrid
                 </div>
 
                 <p className="mt-2 mb-10 text-gray-600">
-                    Top instructors from around the world teach millions of students on Learn-It. We provide the tools and skills to teach what you love. 
+                    Top instructors from around the world inspire fellow teachers on EduGrid. We provide the tools and skills to share the knowledge of what you love. 
                 </p>
 
                 <div className="text-center">
                     <Link to="/instructor">
-                            <Button label={'Start Teaching'} />
+                            <Button label={'Start Teaching'}
+                            className={"px-4 py-2 mb-6 font-bold text-white bg-indigo-500 rounded shadow hover:bg-indigo-400 focus:shadow-outline focus:outline-none"}
+                            />
                     </Link> 
                 </div>
         

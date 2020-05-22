@@ -7,7 +7,7 @@ const StudentDashBoard = () => {
     return ( 
         <>
             <Helmet>
-               <title>Learn-It | Student Dashboard</title>
+               <title>EduGrid | Student Dashboard</title>
             </Helmet>
            <StudentComponent />
         </>

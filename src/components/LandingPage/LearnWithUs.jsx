@@ -15,19 +15,18 @@ const LearnWithUs = ({ pics}) => {
                    
             </div>
             <div className="mt-4 align-middle md:mt-0 md:ml-6">
-                <h4 className="mb-4 text-lg font-bold text-indigo-600">Transform your life through education</h4>
-                <p className="mt-2"> 
-                Peter Drury launched a new career in software development by taking courses on Learn-It. We can help you achieve your dreams.
+                <h4 className="mb-4 text-lg font-bold text-indigo-600">Created for Teachers by Teachers</h4>
+                <p className="mt-2 text-gray-600 mb-10"> 
+                We believe that teachers know their students best. We also believe that when teachers are given the right resources 
+                to inform and deliver effective instructions, every student benefits. With a collection of incredible powerful content created by 
+                fellows of Teach For Nigeria, We solve education inequity in various learning environment. We rely heavily on the input and creative 
+                talents of these Fellows to create our resources.
                 </p>
-                <p className="mt-2 text-gray-600"> January this year, i made a resolution to learn software development because i had always wanted to do that for a long time.
-                    A friend of mine introduced me too Learn-It and ever since then, i have learnt so much from their incredible instructors. i just got a job at Venture Garden Group as a Frontend Engineer. 
-                </p>
-                <p className="mt-2 text-gray-600">I can't be more happier. I will recommend Learn-It for anyone, anyday.</p>
-                <p className="mt-2 mb-8"> 
-                    Like Peter, you too can get Started.
-                </p>
-                <div className="text-center">
-                    <Link to="/courses"> <Button label={'Start Learning'} /></Link>
+                
+               <div className="text-center">
+                    <Link to="/courses"> <Button label={'Start Learning'}                     
+                        className={"px-4 py-2 mb-6 font-bold text-white bg-indigo-500 rounded shadow hover:bg-indigo-400 focus:shadow-outline focus:outline-none"}
+                    /></Link>
                 </div>
             </div>      
                

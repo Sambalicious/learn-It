@@ -54,7 +54,7 @@ const DisplayCourses = (props) => {
             <div className="flex justify-center md:mb-6">
                     <ReactPlayer 
                     width="720px"
-                     height="400px" 
+                     height="320px" 
                      controls
                      url={contents.video} />
             </div>
@@ -62,7 +62,7 @@ const DisplayCourses = (props) => {
             <div>
             <h3 className="flex justify-center my-2 font-sans text-lg text-purple-500 text-ceter">Course Description</h3>
                 <p className="justify-center mb-4 text-black"> {contents.description} </p>
-            <p className="flex justify-center mb-2 text-base text-purple-700">Author: </p>
+            <p className="flex justify-center mb-2 text-base text-purple-700">Instructor: </p>
             <p  className="flex justify-center mb-4 text-base text-purple-700">{contents.author}</p>
             </div>
             

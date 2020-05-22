@@ -210,7 +210,7 @@ const Form = () => {
           />
 
           <InputField
-                label={'Author'} 
+                label={'Instructor'} 
                 placeholder={'e.g Samuel Ayegbusi'} 
                 onChange={handleAuthor}
                 type={'text'}

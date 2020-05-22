@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Navbar from './Navbar/Navbar';
 import FooterPage from './components/Footer/FooterPage';
 import { StoreContext } from './provider/store';
+import Skeleton from 'react-loading-skeleton'
 
 
 const NotFound = lazy(()=> import('./components/OtherPages/NotFound'));
@@ -27,7 +28,7 @@ function App() {
      <Router>
          <Navbar />
        <Switch>   
-       <Suspense fallback={<div className='flex justify-center my-40 md:my-64 spinner'></div>}>
+       <Suspense fallback={<div classname="bg-indigo-200"> <Skeleton count={30} height={50} /></div>}>
                           
               <Route path='/courses/:id'  component={EachCourses} />
               <Route path='/courses' exact render={()=> <Courses />} />
