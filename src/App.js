@@ -28,7 +28,7 @@ function App() {
      <Router>
          <Navbar />
        <Switch>   
-       <Suspense fallback={<div classname="bg-indigo-200"> <Skeleton count={30} height={50} /></div>}>
+       <Suspense fallback={<div classname="bg-indigo-200"> <Skeleton count={30} height={30} /></div>}>
                           
               <Route path='/courses/:id'  component={EachCourses} />
               <Route path='/courses' exact render={()=> <Courses />} />

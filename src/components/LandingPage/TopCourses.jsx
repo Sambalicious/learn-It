@@ -2,10 +2,10 @@ import React from 'react'
 import CourseCard from './CourseCard'
 import { Link } from 'react-router-dom';
 import { IconContext} from 'react-icons'
-import { FaBrain, FaShoppingBag,FaBookOpen, FaPeopleCarry , FaBusinessTime} from 'react-icons/fa';
+import { FaBrain,FaBookOpen, FaPeopleCarry , FaBusinessTime} from 'react-icons/fa';
 import {GiPublicSpeaker,GiStumpRegrowth,GiTalk, GiTeacher} from 'react-icons/gi'
 
-import {MdHeadsetMic, MdGroup} from 'react-icons/md';
+import { MdGroup} from 'react-icons/md';
 
 
 
