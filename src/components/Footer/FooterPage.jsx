@@ -1,7 +1,5 @@
 import React from 'react';
-import playstore from '../../utils/img/playstore.png';
-import appstore from '../../utils/img/appstore.png'
-
+import {MdEmail} from 'react-icons/md'
 
 
 const FooterPage = () => {
@@ -14,6 +12,7 @@ const FooterPage = () => {
                     <p className="text-teal-200 hover:text-white">Terms and Conditions</p>
                     <p className="text-teal-200 hover:text-white">Contact Us</p>
                     <p className="text-teal-200 hover:text-white">About</p>
+                    <p className="text-center text-teal-200 hover:text-white"><span className="flex justify-center mr-2"><MdEmail size={'1.5rem'} />  officialEduGrid@gmail.com</span></p>
                     <p className="text-teal-200 md:flex">&copy;EduGridNIgeria 2020, ALL RIGHT RESERVED. </p>
 
             
