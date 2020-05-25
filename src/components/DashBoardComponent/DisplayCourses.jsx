@@ -71,7 +71,9 @@ const DisplayCourses = (props) => {
             </div>
             
             <div className="flex justify-center">
-                <Button label={'Add To Favourites'} onSubmit={addToFavourite} />
+                <Button label={'Add To Favourites'}
+                className={"px-4 py-2 mb-6 font-bold text-white bg-indigo-500 rounded shadow hover:bg-indigo-400 focus:shadow-outline focus:outline-none"}
+                 onSubmit={addToFavourite} />
             </div>
         </div>
      );

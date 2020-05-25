@@ -27,7 +27,6 @@ export default () => {
                 localStorage.setItem("userToken", token)
 
                 register(response.data)
-
         }catch(e){
             console.log(e)
         }
@@ -41,7 +40,6 @@ export default () => {
 
         } catch (error) {
             console.log(error)
-            
         }
    
     }
@@ -61,7 +59,6 @@ export default () => {
         }catch(e){
             console.log(e)
         }
-        
     }
      
     return {
