@@ -23,8 +23,8 @@ const InstructorCourses = () => {
             
             <div className="bg-purple-100 md:grid md:grid-cols-3 md:gap-4">
             {userCourses.length === 0 && 
-            <div className="flex justify-center">
-                <h3>You haven't created any course content!</h3>
+            <div className="flex justify-center my-6">
+                <h3 className="text-center">You haven't created any course content!</h3>
                 </div>}
             {Array.isArray(userCourses) && userCourses.length !== 0 ? userCourses.map((course) =>
             <UpdateCourse

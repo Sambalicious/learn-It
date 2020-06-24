@@ -96,9 +96,9 @@ export default () => {
 
                   checkFavCourse(user_id, course_id);
 
-                  toast.success('course has been added to your dashboard')
+                  toast.success('Course has been added to your dashboard')
             }catch(e){
-              toast.error('something went wrong, please try again')
+              toast.error('Something went wrong, please check your Internet Connection')
                 console.log(e)
             }
         }
@@ -179,18 +179,15 @@ export default () => {
 
       await axios.delete(`${ENDPOINT}/favourites/${response.data[0].id}`);
 
-      handleDeleteCourse(id)
+      handleDeleteCourse(id);
       
       toast.success('course has been deleted')
     } catch (error) {
         toast.error('something went wrong, please try again')
     }
-
 }
 
 
-
-    
 
     return {
         ...state,

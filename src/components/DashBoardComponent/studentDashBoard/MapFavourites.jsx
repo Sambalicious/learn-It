@@ -24,7 +24,7 @@ const MapFavourites = () => {
             
             <div className="bg-purple-100 md:grid md:grid-cols-3 md:gap-4">
             {favCourses.length === 0 && 
-            <div className="flex justify-center">
+            <div className="flex justify-center my-6">
                 <h3>You haven't added any course to your Dashboard yet.</h3>
                 </div>}
             {Array.isArray(favCourses) && favCourses.length !== 0 ? favCourses.map((course) =>
