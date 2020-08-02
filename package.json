@@ -45,6 +45,7 @@
     "build:css": "postcss src/assets/tailwind.css -o src/assets/main.css",
     "watch:css": "postcss src/assets/tailwind.css -o src/assets/main.css"
   },
+  "proxy": "https://app-server20.herokuapp.com",
   "eslintConfig": {
     "extends": "react-app"
   },

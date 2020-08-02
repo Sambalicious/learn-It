@@ -5,8 +5,7 @@ import { toast} from  'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import InputField from '../InputField'
 import Button from '../../DashBoardComponent/Button'
-import Formik from 'formik';
-import * as Yup from 'yup';
+
 
 
 
@@ -60,7 +59,7 @@ const Form = () => {
                         console.log(error)
                        setError('Something went wrong')
                       })                         
-        },[image]);
+        },[setImageUrl]);
         
 
         //upload video to cloudinary
@@ -80,7 +79,7 @@ const Form = () => {
             .catch(error=>{
               console.log(error)
             })
-        },[video])
+        },[setVideoUrl])
 
         const user_id = parseInt(localStorage.getItem("user_id"));
 
