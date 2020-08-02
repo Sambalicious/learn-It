@@ -3,6 +3,7 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import Button from '../../DashBoardComponent/Button'
 import axios from 'axios';
+import {useHistory} from 'react-router'
 import { toast} from  'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -12,6 +13,7 @@ const FormikForm =()=>{
       const [imageUpload, setImageUpload] = useState('');
       const [videoUpload, setVideoUpload] = useState('');
       const [videoLink, setVideoLink] = useState('');
+      const history = useHistory();
 
       useEffect(()=>{            
         axios.post("https://api.imgur.com/3/image",imageUpload, {
@@ -93,7 +95,6 @@ const FormikForm =()=>{
                 
               onSubmit ={async (values) =>{
                 
-                alert(JSON.stringify(values))
 
               //   let formData = new FormData();
 
@@ -121,11 +122,11 @@ const FormikForm =()=>{
                     toast.success('You have succesfully created a content');
                     console.log(response)
                 } catch (error) {
-                  toast.error('something went wrong. please try again');
+                 
                   console.log(error)
                 }
 
-              
+                history.push('/')
                 
               }}>
 
