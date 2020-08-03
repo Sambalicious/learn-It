@@ -44,7 +44,7 @@ const FormikForm =()=>{
           
           })
           .catch(error=>{
-            toast.error("something went wrong. please re-upload the course video");
+            console.log("something went wrong. please re-upload the course video");
           })
       },[videoUpload])
 
