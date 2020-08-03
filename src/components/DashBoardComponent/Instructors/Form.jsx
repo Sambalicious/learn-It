@@ -70,6 +70,7 @@ const Form = () => {
                         }
                       }).then(response=> {
                         setImageUrl(response.data.data.link);
+                        console.log(response)
                       })
                       .catch(error => {
                         console.log(error)
