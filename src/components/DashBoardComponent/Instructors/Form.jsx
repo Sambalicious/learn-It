@@ -7,6 +7,9 @@ import InputField from '../InputField'
 import Button from '../../DashBoardComponent/Button'
 
 
+
+
+
 toast.configure()
 const Form = () => {
 
@@ -42,7 +45,7 @@ const Form = () => {
         const [error, setError] = useState('');
         const [videoUrl, setVideoUrl] = useState('')
 
-
+       
         //upload image to imgur
         useEffect(()=>{            
           axios.post("https://api.imgur.com/3/image",image, {
@@ -51,12 +54,12 @@ const Form = () => {
                         }
                       }).then(response=> {
                         setImageUrl(response.data.data.link);
-                        console.log(response.data.data.link)})
+                      })
                       .catch(error => {
                         console.log(error)
                        setError('Something went wrong')
                       })                         
-        },[image]);
+        },[setImageUrl]);
         
 
         //upload video to cloudinary
@@ -71,48 +74,94 @@ const Form = () => {
             axios.post(url,fd)
             .then(response =>{
             setVideoUrl(response.data.secure_url)  
+            console.log(response.data.secure_url)  
             })
             .catch(error=>{
               console.log(error)
-              
             })
-        },[video])
+        },[setVideoUrl])
 
-          ////function that is called on submit
+        const user_id = parseInt(localStorage.getItem("user_id"));
+
+          ////function that is called on FormSubmit
         const handleSubmit = (e) =>{
             e.preventDefault();
-            if ([title, description,author, imageUrl, videoUrl].includes('')){
+            if ([title, description,author, imageUrl, videoUrl, user_id].includes('')){
               toast.error('All fields are required');
-            } else{
+            }else{
 
-             const courseData = {
-              "title": title,
-              "description":description,
-              "author": author,
-              "image": imageUrl,
-              "video": videoUrl
-             }             
+              const courseData = {
+                "title": title,
+                "description":description,
+                "author": author,
+                "image": imageUrl,
+                "video": videoUrl,
+                "user_id": user_id
+               } 
+                          
+                  axios.post('https://app-server20.herokuapp.com/courses',courseData,{
+                   headers: {
+                   "Content-type": "application/json; charset=UTF-8"
+                      }
+                   })
+                 .then(response=>{
+                  console.log(response);
+                  toast.success('You have succesfully created a content')
+                 })
+                 .catch(error =>{
+                  toast.error('something went wrong. please try again');
+                  console.log(error)
+                 }) 
+  
+                 const favStars = {
+                   users: []
+                 }
+                
+                 axios.post('https://app-server20.herokuapp.com/favourites',favStars,{
+                   headers: {
+                   "Content-type": "application/json; charset=UTF-8"
+                      }
+                   })
+                 .then(response=>{
+                  console.log(response);
+                 })
+                 .catch(error =>{
+              
+                  console.log(error)
+                 });
+                 
+                 axios.post('https://app-server20.herokuapp.com/stars',favStars,{
+                   headers: {
+                   "Content-type": "application/json; charset=UTF-8"
+                      }
+                   })
+                 .then(response=>{
+                  console.log(response);
+  
+                 })
+                 .catch(error =>{
+                  console.log(error)
+                 }) 
 
-             toast.success('You have succesfully created a content');
-
-               axios.post('https://app-server20.herokuapp.com/courses',courseData,{
-                 headers: {
-                 "Content-type": "application/json; charset=UTF-8"
-                    } })
-               .then(response=>console.log(response))
-               .catch(error => console.log(error))
-               history.push('/')
-            
+                 history.push('/')
+            } 
         } 
-      }        
-        
+       
+
     return ( 
         <div className="justify-center md:flex sm:items-center">
             <form onSubmit={handleSubmit} 
             className="container max-w-md px-4 md:w-full">
+
+          <InputField
+              label={'Upload Course Video'} 
+              onChange={handleVideo} 
+              type={'file'}
+              accept={'video/*'}
+          />
   
 
-        <InputField placeholder={"Principles of Web Development by samuel"} 
+        <InputField placeholder={"Principles of Web Development"} 
               label={'Course Title'}
               value={title}
               type={'text'} 
@@ -139,13 +188,6 @@ const Form = () => {
   </div>
 
           <InputField
-              label={'Upload video'} 
-              onChange={handleVideo} 
-              type={'file'}
-              accept={'video/*'}
-          />
-
-          <InputField
                 label={'Course Cover Image'} 
                 onChange={handleImage}
                 type={'file'} 
@@ -158,9 +200,10 @@ const Form = () => {
                 onChange={handleAuthor}
                 type={'text'}
             />
-
+            
           <Button
               onSubmit={handleSubmit}
+              className={"px-4 py-2 mb-6 font-bold text-white bg-indigo-500 rounded shadow hover:bg-indigo-400 focus:shadow-outline focus:outline-none"}
               label={'Add Content'}
           />
         

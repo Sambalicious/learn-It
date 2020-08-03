@@ -1,12 +1,12 @@
 import React from 'react'
 
 
-const Button = ({onSubmit, label}) => {
+const Button = ({onSubmit, label, className}) => {
     
     return ( 
-        <div className="md:flex justify-center">
+        <div className="justify-center md:flex">
            <div >
-               <button className="shadow mb-6 bg-indigo-500 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button" onClick={onSubmit}>
+               <button className={className} type="submit" onClick={onSubmit}>
                   {label}
                </button>
           </div>
@@ -14,4 +14,4 @@ const Button = ({onSubmit, label}) => {
      );
 }
  
-export default Button;
+export default  Button;
