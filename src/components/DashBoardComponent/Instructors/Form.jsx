@@ -5,8 +5,24 @@ import { toast} from  'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import InputField from '../InputField'
 import Button from '../../DashBoardComponent/Button'
+import Formik from 'formik';
+import * as Yup from 'yup';
 
+const initialValues = {
+  title: '',
+  description:'',
+  author:''
+}
 
+const onSubmit = values =>{
+  console.log(values)
+}
+
+const validationSchema = Yup.object({
+  title: Yup.string().required('Course Title is required'),
+  description: Yup.string().required('Course Description is required'),
+  author: Yup.string().required('Author Field is Required')
+})
 
 
 
@@ -195,7 +211,7 @@ const Form = () => {
           />
 
           <InputField
-                label={'Author'} 
+                label={'Instructor'} 
                 placeholder={'e.g Samuel Ayegbusi'} 
                 onChange={handleAuthor}
                 type={'text'}

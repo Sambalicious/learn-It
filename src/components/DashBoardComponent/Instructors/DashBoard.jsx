@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 
 
 
-
 const DashBoard = () => {
     return ( 
         <div className="py-4 bg-pink-100">
@@ -19,9 +18,9 @@ const DashBoard = () => {
                     />
                 </Link> 
            </div>
-            <InstructorCourses />
-           
-        </div>
+                <InstructorCourses />
+
+           </div>
      );
 }
  

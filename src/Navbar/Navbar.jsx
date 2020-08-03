@@ -10,7 +10,7 @@ const Navbar = () => {
            <nav className="flex flex-wrap items-center justify-between p-6 mt-0 bg-indigo-900">
   <div className="flex items-center flex-shrink-0 mr-6 text-white">
     <svg className="w-8 h-8 mr-2 fill-current" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg>
-    <NavLink to="/" ><span className="text-xl font-bold cursor-pointer">Learn-It </span> </NavLink>
+    <NavLink to="/" ><span className="text-xl font-bold cursor-pointer">EduGrid</span> </NavLink>
   </div>
   <div onClick={()=>setShow(!show)} className={ show ? "block lg:hidden": undefined }>
     <button className="flex items-center px-3 py-2 text-teal-200 border border-teal-400 rounded hover:text-white hover:border-white">
@@ -34,7 +34,7 @@ const Navbar = () => {
       </NavLink>
 
       <NavLink to="/search" className="block mt-4 mr-4 text-teal-200 lg:inline-block lg:mt-0 hover:text-white">
-     Search For Anything
+     Search For Courses
       </NavLink>
 
       

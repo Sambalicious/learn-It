@@ -7,7 +7,7 @@ const Courses = () => {
     return ( 
         <>
             <Helmet>
-               <title>Learn-It | Courses</title>
+               <title>EduGrid | Courses</title>
             </Helmet>
             <Offers label={"Available Courses"} />
         </>

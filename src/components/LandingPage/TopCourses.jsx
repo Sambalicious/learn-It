@@ -2,17 +2,18 @@ import React from 'react'
 import CourseCard from './CourseCard'
 import { Link } from 'react-router-dom';
 import { IconContext} from 'react-icons'
-import { FaGlobe, FaShoppingBag, FaCamera , FaBusinessTime} from 'react-icons/fa';
-import {GiMegaphone, GiReceiveMoney} from 'react-icons/gi'
-import {IoLogoDesignernews} from 'react-icons/io';
-import {MdHeadsetMic, MdGroup} from 'react-icons/md';
+import { FaBrain,FaBookOpen, FaPeopleCarry , FaBusinessTime} from 'react-icons/fa';
+import {GiPublicSpeaker,GiStumpRegrowth,GiTalk, GiTeacher} from 'react-icons/gi'
+
+import { MdGroup} from 'react-icons/md';
+
 
 
 
 const TopCourses = () => {
     return ( 
-        <div className="px-4 pb-5 my-6 bg-gray-200 md:pt-4">
-            <h2 className="py-3 my-4 ml-8 text-3xl font-extrabold text-red-900 md:my-8">Top Courses</h2>
+        <div className="px-4 pb-5 my-2 bg-gray-200 md:pt-4">
+            <h2 className="py-3 my-4 ml-8 text-3xl font-extrabold text-red-900 md:my-4">Top Courses</h2>
             
                 
             <div className="grid-cols-4 gap-5 md:grid">
@@ -20,50 +21,50 @@ const TopCourses = () => {
             <IconContext.Provider value={{size:"3rem", color:'orange'}}>
             <Link to="/search?q=web">
             <CourseCard 
-                label={'Web Development'} 
-                icon={<FaGlobe  />} 
+                label={'Emotional Intelligence'} 
+                icon={<FaBrain  />} 
             />
             </Link>
 
             <Link to="/search?q=business">
             <CourseCard 
-                label={'Business Support'}
+                label={'Transformational Leadership'}
                 icon={<FaBusinessTime />}
              />
              </Link>
 
             <Link to="/search?q=market">
             <CourseCard 
-                label={'Marketing & Communication'}
-                icon={<GiMegaphone/>} 
+                label={'Public Speaking'}
+                icon={<GiPublicSpeaker/>} 
              />
              </Link>
 
                 <Link to="/search?q=manage">
                     <CourseCard
-                        label={'Product Management'}
-                        icon={<FaShoppingBag />} 
+                        label={'Effective Communication'}
+                        icon={<GiTalk />} 
                     />
                 </Link>
 
                 <Link to="/search?q=finance">
                     <CourseCard
-                        label={'Finance Management'}
-                        icon={<GiReceiveMoney />}
+                        label={'Transformational Leadership'}
+                        icon={<GiTeacher />}
                     />
                 </Link>
 
             <Link to="/search?q=design">
             <CourseCard
-                label={'Designs & Development'} 
-                icon={<IoLogoDesignernews />}
+                label={'Lesson Planning'} 
+                icon={<FaBookOpen />}
              />
              </Link>
 
             <Link to="/search?q=customer">
             <CourseCard
-                label={'Customer Support'}
-                icon={<MdHeadsetMic />} 
+                label={'Growth Mindset'}
+                icon={<GiStumpRegrowth />} 
             />
             </Link>
 
@@ -76,8 +77,8 @@ const TopCourses = () => {
 
             <Link to="/search?q=photo">
             <CourseCard 
-                label={'Photography & Video Editing'} 
-                icon={<FaCamera />}
+                label={'Collaboration'} 
+                icon={<FaPeopleCarry />}
              />
             </Link>
        

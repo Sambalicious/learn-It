@@ -7,7 +7,7 @@ const InstructorsDashBoard = () => {
     return ( 
         <>
           <Helmet>
-               <title>Learn-It | Instructor DashBoard</title>
+               <title>EduGrid | Instructor DashBoard</title>
           </Helmet>
              <DashBoard/>
         </>
