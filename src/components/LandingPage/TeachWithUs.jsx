@@ -22,8 +22,9 @@ const TeachWithUs = () => {
                 <div className="text-center">
                     <Link to="/instructor">
                             <Button label={'Start Teaching'}
-                            className={"px-4 py-2 mb-6 font-bold text-white bg-indigo-500 rounded shadow hover:bg-indigo-400 focus:shadow-outline focus:outline-none"}
-                            />
+           
+                             className={'px-4 py-2 mb-6 font-bold text-white bg-indigo-500 rounded shadow hover:bg-indigo-400 focus:shadow-outline focus:outline-none'}
+                              />
                     </Link> 
                 </div>
         

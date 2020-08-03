@@ -2,10 +2,6 @@
 
 @import "tailwindcss/components";
 
-@import "tailwindcss/utilities";
-
-
-
 input[type="radio"]{
     display: none;
 
@@ -66,3 +62,13 @@ div .spinner h3{
     width: 100vw;
     height: 100vh;
 }
+
+.is-invalid{
+    @apply  border-red-500;
+}
+
+
+@import "tailwindcss/utilities";
+
+
+

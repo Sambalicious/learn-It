@@ -19,6 +19,7 @@ const DashBoard = () => {
                 </Link> 
            </div>
                 <InstructorCourses />
+
            </div>
      );
 }

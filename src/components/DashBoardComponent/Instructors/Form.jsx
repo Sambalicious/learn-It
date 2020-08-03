@@ -25,6 +25,7 @@ const validationSchema = Yup.object({
 })
 
 
+
 toast.configure()
 const Form = () => {
 
@@ -74,7 +75,7 @@ const Form = () => {
                         console.log(error)
                        setError('Something went wrong')
                       })                         
-        },[image]);
+        },[setImageUrl]);
         
 
         //upload video to cloudinary
@@ -94,7 +95,7 @@ const Form = () => {
             .catch(error=>{
               console.log(error)
             })
-        },[video])
+        },[setVideoUrl])
 
         const user_id = parseInt(localStorage.getItem("user_id"));
 
